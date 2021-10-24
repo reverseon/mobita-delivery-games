@@ -1,0 +1,5 @@
+Copas ini:
+gcc -o driver driver_config_c.c charmachine.c konfigurasi_c.c
+
+Lalu copas ini:
+.\driver.exe

@@ -5,7 +5,6 @@
 jumlahPesanan* konfigurasiC(int* arrlen)
 {
     int t;
-    start();
     t = 0;
     while(true)
     {
@@ -82,4 +81,24 @@ jumlahPesanan* konfigurasiC(int* arrlen)
 
     *arrlen = len;
     return array;
+}
+
+adjM loadAdjM(int nBuild) {
+    adjM adjMap;
+    adjMap.rEff = nBuild+1;
+    adjMap.cEff = nBuild+1;
+    int i = 0; // CONTROL
+    int j = 0;
+    while (i < nBuild+1) {
+        j = 0;
+        while (j < nBuild+1) {
+            if (currentChar == '1' || currentChar == '0') {
+                adjMap.a[i][j] = (currentChar == '1' ? 1 : 0);
+                j++;
+            }
+            adv();
+        }
+        i++;
+    }
+    return adjMap;
 }

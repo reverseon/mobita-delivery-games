@@ -107,3 +107,7 @@ void displayKata (Word kata)
     i++;
   }
 }
+char KataToChar (Word K)
+{
+    return (K.contents[1]);
+}

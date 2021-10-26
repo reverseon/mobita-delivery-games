@@ -45,6 +45,8 @@ void copyWord();
           currentChar = BLANK atau currentChar = MARK; 
           currentChar adalah karakter sesudah karakter terakhir yang diakuisisi.
           Jika panjang kata melebihi CAPACITY, maka sisa kata terpotong */
-
+int KataToInt (Word kata);
+void displayKata (Word kata);
+char KataToChar (Word K);
 #endif
 

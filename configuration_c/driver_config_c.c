@@ -21,7 +21,7 @@ void dispRel(adjM a) {
 
 int main()
 {
-    start();
+    start("test.txt");
     dispRel(loadAdjM(17));
     printf("\n");
     jumlahPesanan* arr;

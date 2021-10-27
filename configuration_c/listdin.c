@@ -136,7 +136,6 @@ ArrDin insertABuilding(int max){
         x_raw = KataToInt(currentWord);
         advWord();
         y_raw = KataToInt(currentWord);
-        printf(" %c(%d %d) ",b_name,x_raw,y_raw);
         insertBuildingInfo(&list_bangunan,b_name,x_raw,y_raw);
         advWord();
     }

@@ -95,13 +95,15 @@ int KataToInt (Word kata) {
          case '8' : num += 8; break;
          case '9' : num += 9; break;
          }
+         i++;
    }
+
    return num;
 }
 
 void displayKata (Word kata)
 {
-  int i = 1;
+  int i = 0;
   while (i<kata.length)
   {
     printf("%c", kata.contents[i]);
@@ -110,5 +112,5 @@ void displayKata (Word kata)
 }
 char KataToChar (Word K)
 {
-    return (K.contents[1]);
+      return (K.contents[0]);
 }

@@ -2,11 +2,16 @@
 #include "listdin.h"
 #include "charmachine.h"
 #include "wordmachine.h"
+#include "konfigurasi_c.h"
 #include "point.h"
 
+
 int main(){
+    jumlahPesanan* J; 
     ArrDin tole;
+    adjM M;
     int max,row,col;
+    int jumlahPesanan=0;
     int x_hq,y_hq;
     char konf[20] = "rutin.txt";
 
@@ -34,5 +39,21 @@ int main(){
 
     // Masukin data semua bangunan ke array dinamis
     tole = insertABuilding(max);
-    displayList(tole);
+    displayList(tole);      // to be removed
+
+    // masukin data adjacency matriks
+    M = loadAdjM(max);
+    displayRel(M);
+    
+    // masukin data jumlahPesanan
+    jumlahPesanan = KataToInt(currentWord);
+    advWord();
+    J = konfigurasiC(jumlahPesanan);
+
+    for (int i=0; i < jumlahPesanan; i++)
+    {
+        printf("%d %c %c %c %d\n",  J[i].time, J[i].pickup, J[i].dropoff, J[i].itemtype, J[i].timelimit);
+    }
+
+    return 0;
 }

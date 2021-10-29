@@ -26,7 +26,7 @@ void BacaPOINT (POINT * P)
 {
     int x,y;
 
-    scanf("%f %f",&x,&y);
+    scanf("%d %d",&x,&y);
     *P = MakePOINT(x,y);
 }
 /* Membaca nilai absis dan ordinat dari keyboard dan membentuk
@@ -38,7 +38,7 @@ void BacaPOINT (POINT * P)
 /* F.S. P terdefinisi */
 void TulisPOINT (POINT P)
 {
-    printf("(%.2f,%.2f)",Absis(P),Ordinat(P));
+    printf("(%d,%d)",Absis(P),Ordinat(P));
 }
 /* Nilai P ditulis ke layar dengan format "(X,Y)"
    tanpa spasi, enter, atau karakter lain di depan, belakang,
@@ -51,14 +51,14 @@ void TulisPOINT (POINT P)
 /* *** Kelompok operasi relasional terhadap POINT *** */
 boolean EQ (POINT P1, POINT P2)
 {
-    if((Absis(P1) == Absis(P2)) && (Ordinat(P1) == Ordinat(P2)))
-        return true;
+    return((Absis(P1) == Absis(P2)) && (Ordinat(P1) == Ordinat(P2)));
+        
 }
 /* Mengirimkan true jika P1 = P2 : absis dan ordinatnya sama */
 boolean NEQ (POINT P1, POINT P2)
 {
-    if((Absis(P1) != Absis(P2)) || (Ordinat(P1) != Ordinat(P2)))
-        return true;
+    return((Absis(P1) != Absis(P2)) || (Ordinat(P1) != Ordinat(P2)));
+        
 }
 /* Mengirimkan true jika P1 tidak sama dengan P2 */
 
@@ -67,14 +67,14 @@ boolean NEQ (POINT P1, POINT P2)
 /* Menghasilkan true jika P adalah titik origin */
 boolean IsOnSbX (POINT P)
 {
-    if (Ordinat(P)==0)
-        return true;
+    return(Ordinat(P)==0);
+        
 }
 /* Menghasilkan true jika P terletak Pada sumbu X */
 boolean IsOnSbY (POINT P)
 {
-    if (Absis(P)==0)
-        return true;
+    return(Absis(P)==0);
+        
 }
 /* Menghasilkan true jika P terletak pada sumbu Y */
 int Kuadran (POINT P)

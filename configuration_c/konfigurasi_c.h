@@ -21,12 +21,13 @@ typedef struct {
 } adjM;
 
 
-jumlahPesanan* konfigurasiC(int* arrlen);
+jumlahPesanan* konfigurasiC(int a);
 // Mereturn array of struct yang terbentuk
 // lalu menggantii arrlen menjadi panjang array of struct
 
 
 // OPERASI TENTANG adjM
 adjM loadAdjM(int nBuild);
+void displayRel(adjM a);
 
 #endif

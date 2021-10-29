@@ -32,7 +32,11 @@ void adv() {
 
 	/* Algoritma */
 	retval = fscanf(tape,"%c",&currentChar);
-	eot = (currentChar == MARK);
+	eot = (currentChar == EOF);
+    if (eot) {
+       fclose(tape);
+    }
+ 	//printf("%d", retval);
 }
 
 // AKA: start without adv()

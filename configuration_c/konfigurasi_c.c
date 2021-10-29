@@ -1,6 +1,7 @@
 #include "charmachine.h"
 #include "konfigurasi_c.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 jumlahPesanan* konfigurasiC(int* arrlen)
 {
@@ -82,6 +83,8 @@ jumlahPesanan* konfigurasiC(int* arrlen)
     *arrlen = len;
     return array;
 }
+
+
 
 adjM loadAdjM(int nBuild) {
     adjM adjMap;

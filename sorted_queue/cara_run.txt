@@ -1,0 +1,5 @@
+Copas ini:
+gcc -o driver_queue driver_queue.c sorted_queue.c ../configuration_c/konfigurasi_c.c ../configuration_c/charmachine.c
+
+Lalu copas ini:
+.\driver_queue.exe

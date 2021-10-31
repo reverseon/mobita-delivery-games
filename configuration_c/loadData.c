@@ -34,7 +34,7 @@ void load_data(char* filename){
     tole = insertABuilding(max);
 
     // masukin data adjacency matriks
-    M = loadAdjM(max);
+    adjacencyMatrix = loadAdjM(max);
     
     // masukin data jumlahPesanan
     jmlPesanan = KataToInt(currentWord);

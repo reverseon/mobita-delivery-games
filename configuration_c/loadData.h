@@ -13,7 +13,7 @@ int jmlPesanan;
 int x_hq,y_hq;
 jumlahPesanan* J; 
 ArrDin tole;
-adjM M;
+adjM adjacencyMatrix;
 
 void load_data(char* filename);
 

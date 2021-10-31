@@ -15,6 +15,6 @@ jumlahPesanan* J;
 ArrDin tole;
 adjM M;
 
-int load_data(char* filename);
+void load_data(char* filename);
 
 #endif

@@ -6,7 +6,7 @@
 #include "loadData.h"
 #include "point.h"
 
-int load_data(char* filename){
+void load_data(char* filename){
     jmlPesanan = 0;
     startWord(filename);
 
@@ -32,21 +32,12 @@ int load_data(char* filename){
 
     // Masukin data semua bangunan ke array dinamis
     tole = insertABuilding(max);
-    displayList(tole);      // to be removed
 
     // masukin data adjacency matriks
     M = loadAdjM(max);
-    displayRel(M);
     
     // masukin data jumlahPesanan
     jmlPesanan = KataToInt(currentWord);
     advWord();
     J = konfigurasiC(jmlPesanan);
-
-    for (int i=0; i < jmlPesanan; i++)
-    {
-        printf("%d %c %c %c %d\n",  J[i].time, J[i].pickup, J[i].dropoff, J[i].itemtype, J[i].timelimit);
-    }
-
-    return 0;
 }

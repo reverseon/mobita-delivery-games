@@ -87,7 +87,7 @@ void displayList(ArrDin l);
 
 /* ********** SEARCHING ********** */
 /* ***  Perhatian : list boleh kosong!! *** */
-POINT indexOf(ArrDin l, ElType nama);
+POINT showLocation(ArrDin l, ElType nama);
 /* Search apakah ada elemen List l yang bernilai val */
 /* Jika ada, menghasilkan indeks i terkecil, dengan elemen ke-i = val */
 /* Jika tidak ada, mengirimkan IDX_UNDEF */

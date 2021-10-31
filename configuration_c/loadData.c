@@ -6,15 +6,8 @@
 #include "loadData.h"
 #include "point.h"
 
-int max,row,col;
-int jmlPesanan = 0;
-int x_hq,y_hq;
-jumlahPesanan* J; 
-ArrDin tole;
-adjM M;
-
-
 int load_data(char* filename){
+    jmlPesanan = 0;
     startWord(filename);
 
     // input atas buat ukuran matriks

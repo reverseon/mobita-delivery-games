@@ -8,6 +8,13 @@
 #include "konfigurasi_c.h"
 #include "point.h"
 
+int max,row,col;
+int jmlPesanan;
+int x_hq,y_hq;
+jumlahPesanan* J; 
+ArrDin tole;
+adjM M;
+
 int load_data(char* filename);
 
 #endif

@@ -197,15 +197,14 @@ void readCommand (Word *K)
 	(*K).length = i;
 }
 
-int main () {
+// int main () {
 
-   Word command;
-   printf("ENTER COMMAND:");readCommand(&command);
-   if (IsCommandSama(command, StringToKata("MOVE"))){
-      printf("move");
-      // insert code here
-   }
+//    Word command;
+//    printf("ENTER COMMAND:");readCommand(&command);
+//    if (IsCommandSama(command, StringToKata("MOVE"))){
+//       // insert code here
+//    }
 
    
-   return 0;
-}
+//    return 0;
+// }

@@ -17,14 +17,14 @@ void CreateTodoList(ToDoList *l)
 }
 
 /****************** TEST LIST KOSONG ******************/
-boolean isEmpty(ToDoList l)
+boolean isTodoEmpty(ToDoList l)
 /* Mengirim true jika list kosong */
 {
     return (FIRST(l) == NULL);
 }
 
 /****************** GETTER SETTER ******************/
-TipeEl getElmt(ToDoList l, int idx)
+TipeEl getTodoElmt(ToDoList l, int idx)
 /* I.S. l terdefinisi, idx indeks yang valid dalam l, yaitu 0..lengthTodoList(l) */
 /* F.S. Mengembalikan nilai elemen l pada indeks idx */
 {
@@ -35,7 +35,7 @@ TipeEl getElmt(ToDoList l, int idx)
     return (INFO(l));
 }
 
-int indexOf(ToDoList l, TipeEl val)
+int indexOfTodo(ToDoList l, TipeEl val)
 /* I.S. l, val terdefinisi */
 /* F.S. Mencari apakah ada elemen list l yang bernilai val */
 /* Jika ada, mengembalikan indeks elemen pertama l yang bernilai val */
@@ -60,7 +60,7 @@ int indexOf(ToDoList l, TipeEl val)
 
 /****************** PRIMITIF BERDASARKAN NILAI ******************/
 /*** PENAMBAHAN ELEMEN ***/
-void insertFirst(ToDoList *l, jumlahPesanan val)
+void insertFirstTodo(ToDoList *l, jumlahPesanan val)
 /* I.S. l mungkin kosong */
 /* F.S. Melakukan alokasi sebuah elemen dan */
 /* menambahkan elemen pertama dengan nilai val jika alokasi berhasil. */
@@ -74,15 +74,15 @@ void insertFirst(ToDoList *l, jumlahPesanan val)
     }
 }
 
-void insertLast(ToDoList *l, jumlahPesanan val)
+void insertLastTodo(ToDoList *l, jumlahPesanan val)
 /* I.S. l mungkin kosong */
 /* F.S. Melakukan alokasi sebuah elemen dan */
 /* menambahkan elemen list di akhir: elemen terakhir yang baru */
 /* bernilai val jika alokasi berhasil. Jika alokasi gagal: I.S.= F.S. */
 {
     ToDoList p, last;
-    if (isEmpty(*l)){
-        insertFirst(l, val);
+    if (isTodoEmpty(*l)){
+        insertFirstTodo(l, val);
     } else {
         p = newNode(val);
         if (p != NULL){
@@ -95,7 +95,7 @@ void insertLast(ToDoList *l, jumlahPesanan val)
     }
 }
 
-void insertAt(ToDoList *l, jumlahPesanan val, int idx)
+void insertAtTodo(ToDoList *l, jumlahPesanan val, int idx)
 /* I.S. l tidak mungkin kosong, idx indeks yang valid dalam l, yaitu 0..lengthTodoList(l) */
 /* F.S. Melakukan alokasi sebuah elemen dan */
 /* menyisipkan elemen dalam list pada indeks ke-idx (bukan menimpa elemen di i) */
@@ -104,7 +104,7 @@ void insertAt(ToDoList *l, jumlahPesanan val, int idx)
     int counter;
     ToDoList p, loc;
     if (idx == 0){
-        insertFirst(l, val);
+        insertFirstTodo(l, val);
     } else {
         p = newNode(val);
         if (p != NULL) {
@@ -121,7 +121,7 @@ void insertAt(ToDoList *l, jumlahPesanan val, int idx)
 }
 
 /*** PENGHAPUSAN ELEMEN ***/
-void deleteFirst(ToDoList *l, TipeEl *val)
+void deleteFirstTodo(ToDoList *l, TipeEl *val)
 /* I.S. ToDoList l tidak kosong  */
 /* F.S. Elemen pertama list dihapus: nilai info disimpan pada x */
 /*      dan alamat elemen pertama di-dealokasi */
@@ -132,7 +132,7 @@ void deleteFirst(ToDoList *l, TipeEl *val)
     *l = NEXT(p);
     free(p);
 }
-void deleteLast(ToDoList *l, TipeEl *val)
+void deleteLastTodo(ToDoList *l, TipeEl *val)
 /* I.S. list tidak kosong */
 /* F.S. Elemen terakhir list dihapus: nilai info disimpan pada x */
 /*      dan alamat elemen terakhir di-dealokasi */
@@ -153,7 +153,7 @@ void deleteLast(ToDoList *l, TipeEl *val)
     free(p);
 }
 
-void deleteAt(ToDoList *l, int idx, TipeEl *val)
+void deleteAtTodo(ToDoList *l, int idx, TipeEl *val)
 /* I.S. list tidak kosong, idx indeks yang valid dalam l, yaitu 0..lengthTodoList(l) */
 /* F.S. val diset dengan elemen l pada indeks ke-idx. */
 /*      Elemen l pada indeks ke-idx dihapus dari l */
@@ -161,7 +161,7 @@ void deleteAt(ToDoList *l, int idx, TipeEl *val)
     int counter;
     ToDoList p, loc;
     if (idx == 0) {
-        deleteFirst(l, val);
+        deleteFirstTodo(l, val);
     } else {
         counter = 0;
         loc = *l;
@@ -188,7 +188,7 @@ void displayTodoList(ToDoList l)
     int counter = 0;
     TipeEl val;
     while(counter < lengthTodoList(l)) {
-        val = getElmt(l, counter);
+        val = getTodoElmt(l, counter);
         if (val.itemtype == 'N'){
             printf("%d. %c -> %c (Normal Item)\n", counter+1, val.pickup, val.dropoff);
         } else if(val.itemtype == 'H'){
@@ -216,5 +216,5 @@ int lengthTodoList(ToDoList l)
 
 void addQueuetoTodo(ToDoList *l , SortedQueue *SQ){
     jumlahPesanan val = popSortedQueue(SQ);
-    insertLast(l, val);
+    insertLastTodo(l, val);
 }

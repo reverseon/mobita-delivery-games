@@ -27,17 +27,17 @@ void CreateTodoList(ToDoList *l);
 /* F.S. Terbentuk list kosong */
 
 /****************** TEST LIST KOSONG ******************/
-boolean isEmpty(ToDoList l);
+boolean isTodoEmpty(ToDoList l);
 /* Mengirim true jika list kosong */
 
 
 /****************** GETTER SETTER ******************/
-TipeEl getElmt(ToDoList l, int idx);
+TipeEl getTodoElmt(ToDoList l, int idx);
 /* I.S. l terdefinisi, idx indeks yang valid dalam l, yaitu 0..length(l) */
 /* F.S. Mengembalikan nilai elemen l pada indeks idx */
 
 
-int indexOf(ToDoList l, TipeEl val);
+int indexOfTodo(ToDoList l, TipeEl val);
 /* I.S. l, val terdefinisi */
 /* F.S. Mencari apakah ada elemen list l yang bernilai val */
 /* Jika ada, mengembalikan indeks elemen pertama l yang bernilai val */
@@ -46,36 +46,36 @@ int indexOf(ToDoList l, TipeEl val);
 
 /****************** PRIMITIF BERDASARKAN NILAI ******************/
 /*** PENAMBAHAN ELEMEN ***/
-void insertFirst(ToDoList *l, jumlahPesanan val);
+void insertFirstTodo(ToDoList *l, jumlahPesanan val);
 /* I.S. l mungkin kosong */
 /* F.S. Melakukan alokasi sebuah elemen dan */
 /* menambahkan elemen pertama dengan nilai val jika alokasi berhasil. */
 /* Jika alokasi gagal: I.S.= F.S. */
 
 
-void insertLast(ToDoList *l, jumlahPesanan val);
+void insertLastTodo(ToDoList *l, jumlahPesanan val);
 /* I.S. l mungkin kosong */
 /* F.S. Melakukan alokasi sebuah elemen dan */
 /* menambahkan elemen list di akhir: elemen terakhir yang baru */
 /* bernilai val jika alokasi berhasil. Jika alokasi gagal: I.S.= F.S. */
 
-void insertAt(ToDoList *l, jumlahPesanan val, int idx);
+void insertAtTodo(ToDoList *l, jumlahPesanan val, int idx);
 /* I.S. l tidak mungkin kosong, idx indeks yang valid dalam l, yaitu 0..length(l) */
 /* F.S. Melakukan alokasi sebuah elemen dan */
 /* menyisipkan elemen dalam list pada indeks ke-idx (bukan menimpa elemen di i) */
 /* yang bernilai val jika alokasi berhasil. Jika alokasi gagal: I.S.= F.S. */
 
 /*** PENGHAPUSAN ELEMEN ***/
-void deleteFirst(ToDoList *l, TipeEl *val);
+void deleteFirstTodo(ToDoList *l, TipeEl *val);
 /* I.S. ToDoList l tidak kosong  */
 /* F.S. Elemen pertama list dihapus: nilai info disimpan pada x */
 /*      dan alamat elemen pertama di-dealokasi */
-void deleteLast(ToDoList *l, TipeEl *val);
+void deleteLastTodo(ToDoList *l, TipeEl *val);
 /* I.S. list tidak kosong */
 /* F.S. Elemen terakhir list dihapus: nilai info disimpan pada x */
 /*      dan alamat elemen terakhir di-dealokasi */
 
-void deleteAt(ToDoList *l, int idx, TipeEl *val);
+void deleteAtTodo(ToDoList *l, int idx, TipeEl *val);
 /* I.S. list tidak kosong, idx indeks yang valid dalam l, yaitu 0..length(l) */
 /* F.S. val diset dengan elemen l pada indeks ke-idx. */
 /*      Elemen l pada indeks ke-idx dihapus dari l */

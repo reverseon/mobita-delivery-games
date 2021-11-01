@@ -40,6 +40,18 @@ void startWord(char *filename)
    }
 }
 
+// void startCommand()
+// /* I.S. : currentChar sembarang 
+//    F.S. : endWord = true, dan currentChar = MARK; 
+//           atau endWord = false, currentWord adalah kata yang sudah diakuisisi,
+//           currentChar karakter pertama sesudah karakter terakhir kata */
+// {
+//    startCom();   
+//    copyCommand();
+
+// }
+
+
 void advWord()
 /* I.S. : currentChar adalah karakter pertama kata yang akan diakuisisi 
    F.S. : currentWord adalah kata terakhir yang sudah diakuisisi, 
@@ -55,6 +67,28 @@ void advWord()
       ignoreBlank();
    }
 }
+
+// void copyCommand()
+// /* Mengakuisisi kata, menyimpan dalam currentWord
+//    I.S. : currentChar adalah karakter pertama dari kata
+//    F.S. : currentWord berisi kata yang sudah diakuisisi; 
+//           currentChar = BLANK atau currentChar = MARK; 
+//           currentChar adalah karakter sesudah karakter terakhir yang diakuisisi.
+//           Jika panjang kata melebihi CAPACITY, maka sisa kata terpotong */
+// {
+
+//    //kamus lokal
+//    int i;
+
+//    //Algoritma
+//    i = 0;
+//    while (currentChar != MARK && currentChar != BLANK && currentChar != NEWLINE && i< CAPACITY){
+//       currentWord.contents[i] = currentChar;
+//       advCommand();
+//       i++;
+//    }
+//    currentWord.length = i;
+// }
 
 void copyWord()
 /* Mengakuisisi kata, menyimpan dalam currentWord
@@ -113,4 +147,65 @@ void displayKata (Word kata)
 char KataToChar (Word K)
 {
       return (K.contents[0]);
+}
+
+Word StringToKata (char s[] ) 
+{
+   Word K;
+   int i = 0;
+   while (s[i]!='\0')
+    {
+        (K).contents[i] = s[i];
+        ++i;
+    }
+   (K).length = i;
+   return K;
+}
+
+boolean IsCommandSama (Word W1, Word W2)
+
+{
+	int i;
+	boolean equal;
+	equal = true;
+
+	if (W1.length != W2.length){
+		return false;
+	} else {
+		i = 0;
+		while ((equal)&&(i < W1.length)){
+			equal = (W1.contents[i] == W2.contents[i]);
+			i++;
+		}
+		return (equal);
+	}
+}
+
+void readCommand (Word *K)
+/* I.S. Sembarang */
+/* F.S. menginput masukan kata dari user dan menyimpannya di K */
+{
+	char c;
+	int i = 0;
+	scanf("%c",&c);
+	while (c != '\n')
+	{
+		(*K).contents[i] = c;
+		++i;
+		scanf("%c",&c);
+	}
+	(*K).length = i;
+}
+
+int main () {
+
+   Word command;
+   printf("ENTER COMMAND:");readCommand(&command);
+   if (IsCommandSama(command, StringToKata("MOVE"))){
+      printf("move");
+      // insert code here
+   }
+
+   
+   return 0;
 }

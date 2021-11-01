@@ -29,5 +29,7 @@ void adv();
 void startWOA(char *filename);
 
 char getAdv();
+// void startCom();
+// void advCommand();
 
 #endif

@@ -48,5 +48,8 @@ void copyWord();
 int KataToInt (Word kata);
 void displayKata (Word kata);
 char KataToChar (Word K);
+
+// void startWordCommand();
+// void copyCommand();
 #endif
 

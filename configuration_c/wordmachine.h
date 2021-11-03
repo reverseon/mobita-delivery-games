@@ -48,6 +48,9 @@ void copyWord();
 int KataToInt (Word kata);
 void displayKata (Word kata);
 char KataToChar (Word K);
+Word StringToKata (char s[]); 
+boolean IsCommandSama (Word W1, Word W2);
+void readCommand (Word *K);
 
 // void startWordCommand();
 // void copyCommand();

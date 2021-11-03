@@ -7,6 +7,8 @@
 #include "point.h"
 
 void load_data(char* filename){
+    int _time = 0;
+    int _money = 0;
     jmlPesanan = 0;
     startWord(filename);
 
@@ -21,6 +23,8 @@ void load_data(char* filename){
     x_hq = KataToInt(currentWord);
     advWord();
     y_hq = KataToInt(currentWord);
+    _currentLocPOINT = MakePOINT(x_hq, y_hq);
+    _currentLocBuilding = '8';
     //insertBuildingInfo(&tole,'8',x_hq,y_hq);
 
     advWord();

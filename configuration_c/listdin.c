@@ -113,8 +113,9 @@ POINT showLocation(ArrDin l, ElType namaGedung){
     while(!temu){
         if(namaGedung == ELMT(l,i)){
             temu = true;
+        } else {
+            i++;
         }
-        i++;
     }
     return COORDINAT(l,i);
 }

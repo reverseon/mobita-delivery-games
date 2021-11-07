@@ -7,8 +7,8 @@
 #include "point.h"
 
 void load_data(char* filename){
-    int _time = 0;
-    int _money = 0;
+    _time = 0;
+    _money = 0;
     jmlPesanan = 0;
     startWord(filename);
 

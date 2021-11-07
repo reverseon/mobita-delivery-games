@@ -10,12 +10,22 @@ void commandProcess() {
     printf("ENTER COMMAND: ");readCommand(command);
     if (IsCommandSama(*command,StringToKata("MOVE"))) {
         move_command();
+        jumlahPesanan out = sq->root->data;
+        while(out.time <= _time){
+            addQueuetoTodo(&TL, sq);
+            out = sq->root->data;
+        } 
     } else if (IsCommandSama(*command,StringToKata("MAP"))) {
         map_command();
     } else if (IsCommandSama(*command,StringToKata("EXIT"))) {
         printf("EXITING...\n");
         EXIT = true;
-    } else {
+    } else if (IsCommandSama(*command,StringToKata("PICK_UP"))) {
+        // pickup_command();
+    }  else if (IsCommandSama(*command,StringToKata("TO_DO"))) {
+        displayTodoList(TL);
+    }
+    else {
         printf("Command Invalid\n");
     }
 }
@@ -27,7 +37,7 @@ void displayStats() {
 }
 
 int main() {
-    load_data("C:\\reverseon\\code\\github\\Alstrukdat_Kel08_K03\\configuration_c\\rutin.txt");
+    load_data("configuration_c/rutin.txt");
     while (!EXIT) {
         displayStats();
         printf("\n");

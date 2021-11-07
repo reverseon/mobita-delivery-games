@@ -5,6 +5,9 @@
 #include "konfigurasi_c.h"
 #include "loadData.h"
 #include "point.h"
+#include "../sorted_queue/sorted_queue.h"
+#include "../linked_list/todolist.h"
+#include "../linked_list/node.h"
 
 void load_data(char* filename){
     _time = 0;
@@ -44,4 +47,11 @@ void load_data(char* filename){
     jmlPesanan = KataToInt(currentWord);
     advWord();
     J = konfigurasiC(jmlPesanan);
+
+    sq = makeSQ(J, jmlPesanan);
+    jumlahPesanan out = sq->root->data;
+    while(out.time <= _time){
+        addQueuetoTodo(&TL, sq);
+        out = sq->root->data;
+    } 
 }

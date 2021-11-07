@@ -94,5 +94,4 @@ int lengthTodoList(ToDoList l);
 /* Mengirimkan banyaknya elemen list; mengirimkan 0 jika list kosong */
 
 void addQueuetoTodo();
-
 #endif

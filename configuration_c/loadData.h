@@ -7,6 +7,9 @@
 #include "wordmachine.h"
 #include "konfigurasi_c.h"
 #include "point.h"
+#include "../sorted_queue/sorted_queue.h"
+#include "../linked_list/todolist.h"
+#include "../linked_list/node.h"
 
 int max,row,col;
 int jmlPesanan;
@@ -18,6 +21,8 @@ POINT _currentLocPOINT;
 char _currentLocBuilding;
 int _time;
 int _money;
+SortedQueue* sq;
+ToDoList TL;
 
 void load_data(char* filename);
 

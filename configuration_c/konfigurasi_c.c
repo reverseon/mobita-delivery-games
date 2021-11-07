@@ -41,18 +41,18 @@ jumlahPesanan* konfigurasiC(int jumlah)
 }
 
 adjM loadAdjM(int nBuild) {
-    adjM adjMap;
-    adjMap.rEff = nBuild+1;
-    adjMap.cEff = nBuild+1;
+    adjM* adjMap = (adjM*)malloc(sizeof(adjM));
+    adjMap->rEff = nBuild+1;
+    adjMap->cEff = nBuild+1;
     int i ; // CONTROL
     int j ;
-    for (i = 0 ; i < adjMap.rEff; i++ ){
-        for (j = 0 ; j < adjMap.cEff; j++) {
-            adjMap.a[i][j] = KataToInt(currentWord);
+    for (i = 0 ; i < adjMap->rEff; i++ ){
+        for (j = 0 ; j < adjMap->cEff; j++) {
+            adjMap->a[i][j] = KataToInt(currentWord);
             advWord();
         }
     }
-    return adjMap;
+    return *adjMap;
 }
 
 void displayRel(adjM a) {

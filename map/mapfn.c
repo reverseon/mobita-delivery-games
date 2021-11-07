@@ -38,7 +38,7 @@ void displayAvailableDestination(char* availdest) {
 }
 
 void move_command() {
-    Word whereto;
+    Word* whereto = (Word*)malloc(sizeof(Word));
     char availdest[28];
     for (int i = 0; i < 27; i++) {
         availdest[i] = ' ';
@@ -46,8 +46,8 @@ void move_command() {
     printf("Posisi yang dapat dicapai:\n");
     displayAvailableDestination(availdest);
     printf("Posisi yang dipilih? (ketik 0 jika ingin kembali)\n");
-    readCommand(&whereto);
-    int dest = KataToInt(whereto);
+    readCommand(whereto);
+    int dest = KataToInt(*whereto);
     if (dest == 0) {
         printf("Proses dibatalkan\n");
     } else if (availdest[dest] == ' ') {
@@ -59,7 +59,7 @@ void move_command() {
 }
 
 void map_command() {
-    POINT temp;
+    POINT temp; 
     POINT hq_coor = MakePOINT(x_hq, y_hq);
     int travBuild = 0;
     for (int i = 0; i < row+2; i++) {

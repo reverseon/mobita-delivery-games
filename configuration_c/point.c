@@ -2,6 +2,7 @@
 /* Tanggal: 28 Agustus 2016 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 #include "point.h"
 #include "boolean.h"
@@ -12,11 +13,11 @@
 /* *** Konstruktor membentuk POINT *** */
 POINT MakePOINT (int X, int Y)
 {
-    POINT P;
-    Absis(P) = X;
-    Ordinat(P) = Y;
+    POINT* P = (POINT*)malloc(sizeof(POINT));
+    Absis(*P) = X;
+    Ordinat(*P) = Y;
 
-    return P;
+    return *P;
 }
 
 /* Membentuk sebuah POINT dari komponen-komponennya */

@@ -6,13 +6,13 @@
 boolean EXIT = false;
 
 void commandProcess() {
-    Word command;
-    printf("ENTER COMMAND: ");readCommand(&command);
-    if (IsCommandSama(command,StringToKata("MOVE"))) {
+    Word* command = (Word*)malloc(sizeof(Word));
+    printf("ENTER COMMAND: ");readCommand(command);
+    if (IsCommandSama(*command,StringToKata("MOVE"))) {
         move_command();
-    } else if (IsCommandSama(command,StringToKata("MAP"))) {
+    } else if (IsCommandSama(*command,StringToKata("MAP"))) {
         map_command();
-    } else if (IsCommandSama(command,StringToKata("EXIT"))) {
+    } else if (IsCommandSama(*command,StringToKata("EXIT"))) {
         printf("EXITING...\n");
         EXIT = true;
     } else {

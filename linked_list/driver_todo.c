@@ -1,4 +1,4 @@
-#include "todolist.h"
+#include "inprogress.h"
 #include "../configuration_c/wordmachine.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,6 +11,10 @@ int main()
     startWord("test.txt");
 
     ToDoList TL;
+    CreateTodoList(&TL);
+
+    ProgressList PL;
+    CreateProgressList(&PL);
 
     jumlahPesanan* arr;
     int len = KataToInt(currentWord);
@@ -21,7 +25,7 @@ int main()
 
     printf("\n");
 
-    // misalkan time = 4
+    // misalkan time = 6
 
     int time = 6;
 
@@ -32,6 +36,9 @@ int main()
     } 
 
     displayTodoList(TL);
+
+    char locationbuilding = 'C';
+    addTodotoProgress(&PL,TL,locationbuilding);
 
     return 0;
 }

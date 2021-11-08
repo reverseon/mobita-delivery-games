@@ -14,17 +14,26 @@ struct todoPesanan
 };
 
 typedef todoPesanan TipeEl;
+
 typedef struct nodeListPesanan* AddressTodo;
 typedef struct nodeListPesanan {
     TipeEl info;    
     AddressTodo next;
 } NodeListPesanan;
 
+typedef struct nodeListProgress* AddressProgress;
+typedef struct nodeListProgress {
+    TipeEl info;    
+    AddressProgress next;
+} NodeListProgress;
+
 #define INFO(p) (p)-> info
 #define NEXT(p) (p)->next
 
 
-AddressTodo newNode(jumlahPesanan val);
+AddressTodo newNodeTodo(jumlahPesanan val);
+
+AddressProgress newNodeProgress(todoPesanan val);
 
 
 #endif

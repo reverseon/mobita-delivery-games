@@ -190,13 +190,13 @@ void displayProgressList(ProgressList l)
     while(counter < lengthProgressList(l)) {
         val = getProgressElmt(l, counter);
         if (val.itemtype == 'N'){
-            printf("%d. %c -> %c (Normal Item)\n", counter+1, val.pickup, val.dropoff);
+            printf("%d. Normal Item (Tujuan: %c)\n", counter+1, val.dropoff);
         } else if(val.itemtype == 'H'){
-            printf("%d. %c -> %c (Heavy Item)\n", counter+1, val.pickup, val.dropoff);
+            printf("%d. Heavy Item (Tujuan: %c)\n", counter+1, val.dropoff);
         } else if(val.itemtype == 'P'){
-            printf("%d. %c -> %c (Perishable Item, sisa waktu %d)\n", counter+1, val.pickup, val.dropoff, val.timelimit);
+            printf("%d. Perishable Item (Tujuan: %c, sisa waktu: %d) %d\n", counter+1, val.dropoff, val.timelimit);
         } else if(val.itemtype == 'V'){
-            printf("%d. %c -> %c (VIP Item)\n", counter+1, val.pickup, val.dropoff);
+            printf("%d. VIP Item (Tujuan: %c)\n", counter+1, val.dropoff);
         }
         counter++;
     }
@@ -213,12 +213,13 @@ int lengthProgressList(ProgressList l)
     return count;
 }
 
-void addTodotoProgress(ProgressList *l, ToDoList tl, char locationbuilding)
+void addTodotoProgress(ProgressList *l, ToDoList *tl, char locationbuilding)
 {
-    int index = indexOfTodoPickup(tl,locationbuilding);
-    printf("%d\n", index);
+    int index = indexOfTodoPickup(*tl,locationbuilding);
     if(index >= 0){
-        todoPesanan pesanan = getTodoElmt(tl, index);
-        printf("%c %c", pesanan.dropoff, pesanan.itemtype);
+        todoPesanan pesanan = getTodoElmt(*tl, index);
+        TipeEl sampah;
+        deleteAtTodo(tl, index, &sampah);
+        insertFirstProgress(l, pesanan);
     }
 }

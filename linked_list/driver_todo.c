@@ -37,8 +37,16 @@ int main()
 
     displayTodoList(TL);
 
+    printf("\n");
+
+    // dilakuin pas PICKUP
     char locationbuilding = 'C';
-    addTodotoProgress(&PL,TL,locationbuilding);
+    addTodotoProgress(&PL,&TL,locationbuilding);
+
+    displayProgressList(PL);
+    printf("\n");
+
+    displayTodoList(TL);
 
     return 0;
 }

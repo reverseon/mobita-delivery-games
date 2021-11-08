@@ -89,7 +89,7 @@ void displayProgressList(ProgressList l);
 int lengthProgressList(ProgressList l);
 /* Mengirimkan banyaknya elemen list; mengirimkan 0 jika list kosong */
 
-void addTodotoProgress(ProgressList *l, ToDoList tl, char locationbuilding);
+void addTodotoProgress(ProgressList *l, ToDoList *tl, char locationbuilding);
 
 
 #endif

@@ -2,6 +2,9 @@
 #define MAPS_FUNCTION_H
 #include <stdio.h>
 #include "../configuration_c/loadData.h"
+#include "pcolor.h"
+
+POINT sLocHandler(ArrDin l, ElType namaGedung);
 
 int buildingCharToInt(char b);
 

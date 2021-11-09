@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "configuration_c/loadData.h"
 #include "map/mapfn.h"
+#include "stack/stack.h"
 #define endl printf("\n")
 
 boolean EXIT = false;
@@ -21,7 +22,7 @@ void commandProcess() {
         printf("EXITING...\n");
         EXIT = true;
     } else if (IsCommandSama(*command,StringToKata("PICK_UP"))) {
-        // pickup_command();
+        pickup_command();
     }  else if (IsCommandSama(*command,StringToKata("TO_DO"))) {
         displayTodoList(TL);
     }

@@ -8,7 +8,7 @@
 #include "../sorted_queue/sorted_queue.h"
 #include "../linked_list/todolist.h"
 #include "../linked_list/node.h"
-
+#include "../stack/stack.h"
 void load_data(char* filename){
     _time = 0;
     _money = 0;

@@ -6,6 +6,7 @@
 #include "boolean.h"
 #include "stack.h"
 
+Stack tas;
 /* *** Konstruktor/Kreator *** */
 void CreateStack(Stack *s)
 /* I.S. sembarang; */
@@ -28,7 +29,7 @@ boolean isFull(Stack s)
   return (IDX_TOP(s) == CAPACITY -1);
 }
 /* ************ Menambahkan sebuah elemen ke Stack ************ */
-void push(Stack *s, ElType val)
+void push(Stack *s, itemTas val)
 /* Menambahkan val sebagai elemen Stack s */
 /* I.S. s mungkin kosong, tabel penampung elemen stack TIDAK penuh */
 /* F.S. val menjadi TOP yang baru,IDX_TOP bertambah 1 */
@@ -38,7 +39,7 @@ void push(Stack *s, ElType val)
 }
 
 /* ************ Menghapus sebuah elemen Stack ************ */
-void pop(Stack *s, ElType *val)
+void pop(Stack *s, itemTas *val)
 /* Menghapus val dari Stack s */
 /* I.S. s tidak mungkin kosong */
 /* F.S. val adalah nilai elemen TOP yang lama, IDX_TOP berkurang 1 */
@@ -46,3 +47,25 @@ void pop(Stack *s, ElType *val)
   *val = TOP(*s);
   IDX_TOP(*s)--;
 }
+
+void pickup_command (){
+      if(indexOfTodoPickup(TL,_currentLocBuilding) != IDXTODO_UNDEF){
+        int idxTodo = indexOfTodoPickup(TL,_currentLocBuilding);
+        push(&tas,getTodoElmt(TL,idxTodo));
+        TipeEl item = getTodoElmt(TL, idxTodo);
+        if (item.itemtype == 'N'){
+          printf("Pesanan berupa Normal item berhasil diambil\n");
+        } else if(item.itemtype == 'H'){
+          printf("Pesanan berupa Heavy item berhasil diambil\n");
+        } else if(item.itemtype == 'P'){
+          printf("Pesanan berupa Perishable item berhasil diambil\n");  
+        } else if(item.itemtype == 'V'){
+          printf("Pesanan berupa VIP item berhasil diambil\n"); 
+        }
+        printf("Tujuan Pesanan %c\n", item.dropoff);
+
+      } else {
+        printf("tidak ada pesanan untuk diambil di lokasi ini");
+      }
+}
+

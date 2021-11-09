@@ -10,6 +10,7 @@
 #include "../sorted_queue/sorted_queue.h"
 #include "../linked_list/todolist.h"
 #include "../linked_list/node.h"
+#include "../stack/stack.h"
 
 int max,row,col;
 int jmlPesanan;
@@ -23,6 +24,8 @@ int _time;
 int _money;
 SortedQueue* sq;
 ToDoList TL;
+
+
 
 void load_data(char* filename);
 

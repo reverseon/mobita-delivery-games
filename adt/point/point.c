@@ -3,7 +3,7 @@
 
 const float PI = 3.14159;
 
-POINT MakePOINT (float X, float Y) {
+POINT MakePOINT (int X, int Y) {
     POINT a;
     AbsisPOINT(a) = X;
     OrdinatPOINT(a) = Y;
@@ -51,7 +51,7 @@ POINT NextYPOINT (POINT P) {
     return MakePOINT(AbsisPOINT(P), OrdinatPOINT(P)+1);
 };
 
-POINT PlusDeltaPOINT (POINT P, float deltaX, float deltaY) {
+POINT PlusDeltaPOINT (POINT P, int deltaX, int deltaY) {
     return MakePOINT(AbsisPOINT(P) + deltaX, OrdinatPOINT(P) + deltaY);
 }
 

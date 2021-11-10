@@ -1,2 +1,2 @@
-build: main.c adt/map/mapfn.c adt/load/loadData.c adt/input_process/charmachine.c adt/input_process/wordmachine.c adt/pcolor/pcolor.c adt/matrix/matrix.c adt/bangunan/bangunan.c adt/point/point.c
-		gcc -o main main.c adt/map/mapfn.c adt/load/loadData.c adt/input_process/charmachine.c adt/input_process/wordmachine.c adt/pcolor/pcolor.c adt/matrix/matrix.c adt/bangunan/bangunan.c adt/point/point.c -g -Wall 
+build: main.c adt/map/map.c adt/load/loadData.c adt/input_process/charmachine.c adt/input_process/wordmachine.c adt/pcolor/pcolor.c adt/matrix/matrix.c adt/bangunan/bangunan.c adt/point/point.c adt/adjacencymatrix/adjacencymatrix.c
+		gcc -o main main.c adt/map/map.c adt/load/loadData.c adt/input_process/charmachine.c adt/input_process/wordmachine.c adt/pcolor/pcolor.c adt/matrix/matrix.c adt/bangunan/bangunan.c adt/point/point.c adt/adjacencymatrix/adjacencymatrix.c -g -Wall 

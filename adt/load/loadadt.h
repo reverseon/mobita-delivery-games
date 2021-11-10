@@ -13,6 +13,7 @@
 #include "../stack/stack.h"
 #include "../static_list/staticlist.h"
 #include "../bangunan/bangunan.h"
-#include "../map/mapfn.h"
+#include "../map/map.h"
+#include "../adjacencymatrix/adjacencymatrix.h"
 
 #endif

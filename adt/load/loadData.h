@@ -28,12 +28,11 @@ POINT _currentLocPOINT;
 char _currentLocBuilding;
 int _time;
 int _money;
-// SortedQueue* sq;
-// ToDoList TL;
+SortedQueue* sq;
+ToDoList TL;
 
 
 jumlahPesanan* konfigurasiC(int a);
-Matrix loadAdjM(int nBuild);
 void load_data(char* filename);
 
 #endif

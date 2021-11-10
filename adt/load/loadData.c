@@ -36,21 +36,6 @@ jumlahPesanan* konfigurasiC(int jumlah) {
     return array;
 }
 
-Matrix loadAdjM(int nBuild) {
-    Matrix* adjMap = (Matrix*)malloc(sizeof(Matrix));
-    ROWSMATRIX(*adjMap) = nBuild+1;
-    COLSMATRIX(*adjMap) = nBuild+1;
-    int i ; // CONTROL
-    int j ;
-    for (i = 0 ; i < ROWSMATRIX(*adjMap); i++ ){
-        for (j = 0 ; j < COLSMATRIX(*adjMap); j++) {
-            ELMTMATRIX(*adjMap, i, j) = KataToInt(currentWord);
-            advWord();
-        }
-    }
-    return *adjMap;
-}
-
 void load_data(char* filename){
     _time = 0;
     _money = 0;

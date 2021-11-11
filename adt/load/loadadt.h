@@ -16,5 +16,6 @@
 #include "../map/map.h"
 #include "../adjacencymatrix/adjacencymatrix.h"
 #include "../inventory/inventory.h"
+#include "../queue_pesanan/queue_pesanan.h"
 
 #endif

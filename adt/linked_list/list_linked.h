@@ -38,7 +38,13 @@ void setElmtLL(ListLL *l, int idx, ElTypeNODELL val);
 /* I.S. l terdefinisi, idx indeks yang valid dalam l, yaitu 0..length(l) */
 /* F.S. Mengubah elemen l pada indeks ke-idx menjadi val */
 
-int indexOfLL(ListLL l, ElTypeNODELL val);
+int indexOfPickupLL(ListLL l, char val);
+/* I.S. l, val terdefinisi */
+/* F.S. Mencari apakah ada elemen list l yang bernilai val */
+/* Jika ada, mengembalikan indeks elemen pertama l yang bernilai val */
+/* Mengembalikan IDX_UNDEF jika tidak ditemukan */
+
+int indexOfDropoffLL(ListLL l, char val);
 /* I.S. l, val terdefinisi */
 /* F.S. Mencari apakah ada elemen list l yang bernilai val */
 /* Jika ada, mengembalikan indeks elemen pertama l yang bernilai val */

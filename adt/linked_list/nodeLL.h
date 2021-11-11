@@ -2,8 +2,15 @@
 #define NODE_LL_H
 
 #include <stdlib.h>
+typedef struct{
+    char pickup;
+    char dropoff;
+    char itemtype;
+    int timelimit;
+}PesananLL;
 
-typedef int ElTypeNODELL;
+
+typedef PesananLL ElTypeNODELL;
 typedef struct nodeLL* AddressNODELL;
 typedef struct nodeLL {
     ElTypeNODELL info;
@@ -11,6 +18,10 @@ typedef struct nodeLL {
 } NodeLL;
 
 #define INFONODELL(p) (p)->info
+#define PICKUPNODELL(p) (p)->info.pickup
+#define DROPOFFNODELL(p) (p)->info.dropoff
+#define ITEMTYPENODELL(p) (p)->info.itemtype
+#define TIMELIMITNODELL(p) (p)->info.timelimit
 #define NEXTNODELL(p) (p)->next
 
 AddressNODELL newNode(ElTypeNODELL val);

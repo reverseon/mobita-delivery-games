@@ -1,0 +1,5 @@
+copy
+gcc -o driver_listlinked nodeLL.c list_linked.c driver_listlinked.c
+
+tulis command
+.\driver_listlinked

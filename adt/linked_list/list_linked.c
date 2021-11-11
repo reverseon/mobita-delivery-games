@@ -23,7 +23,7 @@ void setElmtLL(ListLL *l, int idx, ElTypeNODELL val) {
     }
     INFONODELL(op) = val;
 } 
-int indexOfLL(ListLL l, ElTypeNODELL val) {
+int indexOfPickupLL(ListLL l, char val) {
     if (isEmptyLL(l)) {
         return IDX_UNDEF_LL;
     } else {
@@ -31,7 +31,29 @@ int indexOfLL(ListLL l, ElTypeNODELL val) {
         boolean found = false;
         int i = 0;
         while (!found && op != NULL) {
-            if (INFONODELL(op) == val) {
+            if (PICKUPNODELL(op) == val) {
+                found = true;
+            } else {
+                op = NEXTNODELL(op);
+                i++;
+            }
+        }
+        if (op == NULL) {
+            return IDX_UNDEF_LL;
+        } else {
+            return i;
+        }
+    }
+}
+int indexOfDropoffLL(ListLL l, char val) {
+    if (isEmptyLL(l)) {
+        return IDX_UNDEF_LL;
+    } else {
+        AddressNODELL op = FIRSTLL(l);
+        boolean found = false;
+        int i = 0;
+        while (!found && op != NULL) {
+            if (DROPOFFNODELL(op) == val) {
                 found = true;
             } else {
                 op = NEXTNODELL(op);
@@ -120,10 +142,10 @@ void displayListLL(ListLL l) {
         printf("[");
         AddressNODELL op = FIRSTLL(l);
         while (NEXTNODELL(op) != NULL) {
-            printf("%i,", INFONODELL(op));
+            printf("%c, %c, %c, %d;", PICKUPNODELL(op), DROPOFFNODELL(op), ITEMTYPENODELL(op), TIMELIMITNODELL(op));
             op = NEXTNODELL(op);
         }
-        printf("%i", INFONODELL(op));
+        printf("%c, %c, %c, %d", PICKUPNODELL(op), DROPOFFNODELL(op), ITEMTYPENODELL(op), TIMELIMITNODELL(op));
         printf("]");
     }
 }
@@ -137,199 +159,199 @@ int lengthLL(ListLL l) {
     return i;
 }
 
-boolean fSearchLL(ListLL L, AddressNODELL P) {
-    AddressNODELL op = FIRSTLL(L);
-    while (op != NULL) {
-        if (op == P) {
-            return true;
-        }
-        op = NEXTNODELL(op);
-    }
-    return false;
-}
+// boolean fSearchLL(ListLL L, AddressNODELL P) {
+//     AddressNODELL op = FIRSTLL(L);
+//     while (op != NULL) {
+//         if (op == P) {
+//             return true;
+//         }
+//         op = NEXTNODELL(op);
+//     }
+//     return false;
+// }
 
-AddressNODELL searchPrecLL(ListLL L, ElTypeNODELL X) {
-    if (lengthLL(L) == 0) {
-        return NULL;
-    } else {
-        AddressNODELL op = FIRSTLL(L);
-        AddressNODELL prev = NULL;
-        boolean f = false;
-        while (op != NULL && !f) {
-            if (INFONODELL(op) == X) {
-                f = true;
-            } else {
-                prev = op;
-                op = NEXTNODELL(op);
-            }
-        }
-        if (f) return prev;
-        else return NULL;
-    }
-}
+// AddressNODELL searchPrecLL(ListLL L, ElTypeNODELL X) {
+//     if (lengthLL(L) == 0) {
+//         return NULL;
+//     } else {
+//         AddressNODELL op = FIRSTLL(L);
+//         AddressNODELL prev = NULL;
+//         boolean f = false;
+//         while (op != NULL && !f) {
+//             if (INFONODELL(op) == X) {
+//                 f = true;
+//             } else {
+//                 prev = op;
+//                 op = NEXTNODELL(op);
+//             }
+//         }
+//         if (f) return prev;
+//         else return NULL;
+//     }
+// }
 
-ElTypeNODELL maxLL(ListLL l) {
-    AddressNODELL op = FIRSTLL(l);
-    int m = INFONODELL(op);
-    while (op != NULL) {
-        if (INFONODELL(op) > m) {
-            m = INFONODELL(op);
-        }
-        op = NEXTNODELL(op);
-    }
-    return m;
-}
+// ElTypeNODELL maxLL(ListLL l) {
+//     AddressNODELL op = FIRSTLL(l);
+//     int m = INFONODELL(op);
+//     while (op != NULL) {
+//         if (INFONODELL(op) > m) {
+//             m = INFONODELL(op);
+//         }
+//         op = NEXTNODELL(op);
+//     }
+//     return m;
+// }
 
-AddressNODELL adrMaxLL(ListLL l) {
-    AddressNODELL op = FIRSTLL(l);
-    AddressNODELL madr = op;
-    while (op != NULL) {
-        if (INFONODELL(op) > INFONODELL(madr)) {
-            madr = op;
-        }
-        op = NEXTNODELL(op);
-    }
-    return madr;
-}
+// AddressNODELL adrMaxLL(ListLL l) {
+//     AddressNODELL op = FIRSTLL(l);
+//     AddressNODELL madr = op;
+//     while (op != NULL) {
+//         if (INFONODELL(op) > INFONODELL(madr)) {
+//             madr = op;
+//         }
+//         op = NEXTNODELL(op);
+//     }
+//     return madr;
+// }
 
-ElTypeNODELL minLL(ListLL l) {
-    AddressNODELL op = FIRSTLL(l);
-    int m = INFONODELL(op);
-    while (op != NULL) {
-        if (INFONODELL(op) < m) {
-            m = INFONODELL(op);
-        }
-        op = NEXTNODELL(op);
-    }
-    return m;
-}
+// ElTypeNODELL minLL(ListLL l) {
+//     AddressNODELL op = FIRSTLL(l);
+//     int m = INFONODELL(op);
+//     while (op != NULL) {
+//         if (INFONODELL(op) < m) {
+//             m = INFONODELL(op);
+//         }
+//         op = NEXTNODELL(op);
+//     }
+//     return m;
+// }
 
-AddressNODELL adrMinLL(ListLL l) {
-    AddressNODELL op = FIRSTLL(l);
-    AddressNODELL madr = op;
-    while (op != NULL) {
-        if (INFONODELL(op) < INFONODELL(madr)) {
-            madr = op;
-        }
-        op = NEXTNODELL(op);
-    }
-    return madr;
-}
+// AddressNODELL adrMinLL(ListLL l) {
+//     AddressNODELL op = FIRSTLL(l);
+//     AddressNODELL madr = op;
+//     while (op != NULL) {
+//         if (INFONODELL(op) < INFONODELL(madr)) {
+//             madr = op;
+//         }
+//         op = NEXTNODELL(op);
+//     }
+//     return madr;
+// }
 
-float averageLL(ListLL l) {
-    float sum = 0;
-    int i = 0;
-    AddressNODELL op = FIRSTLL(l);
-    while (op != NULL) {
-        sum += INFONODELL(op);
-        op = NEXTNODELL(op);
-        i++;
-    }
-    return sum / i;
-}
+// float averageLL(ListLL l) {
+//     float sum = 0;
+//     int i = 0;
+//     AddressNODELL op = FIRSTLL(l);
+//     while (op != NULL) {
+//         sum += INFONODELL(op);
+//         op = NEXTNODELL(op);
+//         i++;
+//     }
+//     return sum / i;
+// }
 
-ListLL concatLL(ListLL l1, ListLL l2) {
-    ListLL cl1, cl2;
-    CreateListLL(&cl1);
-    CreateListLL(&cl2);
-    int lenl1 = lengthLL(l1);
-    int lenl2 = lengthLL(l2);
-    int i = 0;
-    for (i = 0; i < lenl1; i++) {
-        insertLastLL(&cl1, getElmtLL(l1, i));
-    }
-    for (i = 0; i < lenl2; i++) {
-        insertLastLL(&cl2, getElmtLL(l2, i));
-    }
-    if (lengthLL(cl2) == 0) {
-        return cl1;
-    } else if (lengthLL(cl1) == 0) {
-        return cl2;
-    } else {
-        ListLL l3 = FIRSTLL(cl1);
-        AddressNODELL op = FIRSTLL(l3);
-        while (NEXTNODELL(op) != NULL) {
-            op = NEXTNODELL(op);
-        }
-        NEXTNODELL(op) = FIRSTLL(cl2);
-        return l3;
-    }
-}
+// ListLL concatLL(ListLL l1, ListLL l2) {
+//     ListLL cl1, cl2;
+//     CreateListLL(&cl1);
+//     CreateListLL(&cl2);
+//     int lenl1 = lengthLL(l1);
+//     int lenl2 = lengthLL(l2);
+//     int i = 0;
+//     for (i = 0; i < lenl1; i++) {
+//         insertLastLL(&cl1, getElmtLL(l1, i));
+//     }
+//     for (i = 0; i < lenl2; i++) {
+//         insertLastLL(&cl2, getElmtLL(l2, i));
+//     }
+//     if (lengthLL(cl2) == 0) {
+//         return cl1;
+//     } else if (lengthLL(cl1) == 0) {
+//         return cl2;
+//     } else {
+//         ListLL l3 = FIRSTLL(cl1);
+//         AddressNODELL op = FIRSTLL(l3);
+//         while (NEXTNODELL(op) != NULL) {
+//             op = NEXTNODELL(op);
+//         }
+//         NEXTNODELL(op) = FIRSTLL(cl2);
+//         return l3;
+//     }
+// }
 
-void delAllLL(ListLL *l) {
-    if (lengthLL(*l) != 0) {
-        AddressNODELL op = FIRSTLL(*l);
-        AddressNODELL nxt = NEXTNODELL(op);
-        while (nxt != NULL) {
-            free(op);
-            op = nxt;
-            nxt = NEXTNODELL(nxt);
-        }
-        free(op);
-    }
-    CreateListLL(l);
-}
+// void delAllLL(ListLL *l) {
+//     if (lengthLL(*l) != 0) {
+//         AddressNODELL op = FIRSTLL(*l);
+//         AddressNODELL nxt = NEXTNODELL(op);
+//         while (nxt != NULL) {
+//             free(op);
+//             op = nxt;
+//             nxt = NEXTNODELL(nxt);
+//         }
+//         free(op);
+//     }
+//     CreateListLL(l);
+// }
 
-void inverseListLL(ListLL *l) {
-    ListLL ret;
-    CreateListLL(&ret);
-    AddressNODELL op = FIRSTLL(*l);
-    while (op != NULL) {
-        insertFirstLL(&ret, INFONODELL(op));
-        op = NEXTNODELL(op);
-    }
-    delAllLL(l);
-    *l = FIRSTLL(ret);
-}
+// void inverseListLL(ListLL *l) {
+//     ListLL ret;
+//     CreateListLL(&ret);
+//     AddressNODELL op = FIRSTLL(*l);
+//     while (op != NULL) {
+//         insertFirstLL(&ret, INFONODELL(op));
+//         op = NEXTNODELL(op);
+//     }
+//     delAllLL(l);
+//     *l = FIRSTLL(ret);
+// }
 
-ListLL fInverseListLL(ListLL l) {
-    ListLL ret;
-    CreateListLL(&ret);
-    AddressNODELL op = FIRSTLL(l);
-    while (op != NULL) {
-        insertFirstLL(&ret, INFONODELL(op));
-        op = NEXTNODELL(op);
-    }
-    return ret;
-}
+// ListLL fInverseListLL(ListLL l) {
+//     ListLL ret;
+//     CreateListLL(&ret);
+//     AddressNODELL op = FIRSTLL(l);
+//     while (op != NULL) {
+//         insertFirstLL(&ret, INFONODELL(op));
+//         op = NEXTNODELL(op);
+//     }
+//     return ret;
+// }
 
-void copyListLL(ListLL *l1, ListLL *l2) {
-    *l2 = *l1;
-}
+// void copyListLL(ListLL *l1, ListLL *l2) {
+//     *l2 = *l1;
+// }
 
-ListLL fCopyListLL(ListLL l) {
-    ListLL ret;
-    CreateListLL(&ret);
-    AddressNODELL op = FIRSTLL(l);
-    while (op != NULL) {
-        insertLastLL(&ret, INFONODELL(op));
-        op = NEXTNODELL(op);
-    }
-    return ret;
-}
+// ListLL fCopyListLL(ListLL l) {
+//     ListLL ret;
+//     CreateListLL(&ret);
+//     AddressNODELL op = FIRSTLL(l);
+//     while (op != NULL) {
+//         insertLastLL(&ret, INFONODELL(op));
+//         op = NEXTNODELL(op);
+//     }
+//     return ret;
+// }
 
-void cpAllocListLL(ListLL lIn, ListLL *lOut) {
-    CreateListLL(lOut);
-    *lOut = fCopyListLL(lIn);
-}
+// void cpAllocListLL(ListLL lIn, ListLL *lOut) {
+//     CreateListLL(lOut);
+//     *lOut = fCopyListLL(lIn);
+// }
 
-void splitListLL(ListLL *l1, ListLL *l2, ListLL l) {
-    int lenl = lengthLL(l);
-    AddressNODELL op = FIRSTLL(l);
-    CreateListLL(l1);
-    CreateListLL(l2);
-    if (lenl != 0){
-        int lenl1 = lenl / 2;
-        int lenl2 = lenl - lenl1;
-        int i = 0;
-        int j = 0;
-        for (i = 0; i < lenl1; i++) {
-            insertLastLL(l1, INFONODELL(op));
-            op = NEXTNODELL(op);
-        }
-        for (j = 0; j < lenl2; j++) {
-            insertLastLL(l2, INFONODELL(op));
-            op = NEXTNODELL(op);
-        }
-    }
-}
+// void splitListLL(ListLL *l1, ListLL *l2, ListLL l) {
+//     int lenl = lengthLL(l);
+//     AddressNODELL op = FIRSTLL(l);
+//     CreateListLL(l1);
+//     CreateListLL(l2);
+//     if (lenl != 0){
+//         int lenl1 = lenl / 2;
+//         int lenl2 = lenl - lenl1;
+//         int i = 0;
+//         int j = 0;
+//         for (i = 0; i < lenl1; i++) {
+//             insertLastLL(l1, INFONODELL(op));
+//             op = NEXTNODELL(op);
+//         }
+//         for (j = 0; j < lenl2; j++) {
+//             insertLastLL(l2, INFONODELL(op));
+//             op = NEXTNODELL(op);
+//         }
+//     }
+// }

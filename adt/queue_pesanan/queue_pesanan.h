@@ -2,7 +2,7 @@
 #define SORTED_QUEUE_H
 
 #include "../boolean/boolean.h"
-#include "../../configuration_c/konfigurasi_c.h"
+#include "../load/load.h"
 
 typedef struct queue_pesanan queue_pesanan;
 struct queue_pesanan{

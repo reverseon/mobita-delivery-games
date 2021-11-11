@@ -10,8 +10,8 @@
 // 8 O P V
 // 8 Q L V
 
-#include "queue_pesanan.c"
-#include "../../configuration_c/konfigurasi_c.h"
+#include "queue_pesanan.h"
+#include "../input_process/charmachine.h"
 
 #include <stdio.h>
 #include <stdlib.h>

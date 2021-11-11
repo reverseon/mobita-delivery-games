@@ -15,5 +15,6 @@
 #include "../bangunan/bangunan.h"
 #include "../map/map.h"
 #include "../adjacencymatrix/adjacencymatrix.h"
+#include "../inventory/inventory.h"
 
 #endif

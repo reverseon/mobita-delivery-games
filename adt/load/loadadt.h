@@ -17,5 +17,7 @@
 #include "../adjacencymatrix/adjacencymatrix.h"
 #include "../inventory/inventory.h"
 #include "../queue_pesanan/queue_pesanan.h"
+#include "../todolist/todolist.h"
+#include "../inprogress/inprogress.h"
 
 #endif

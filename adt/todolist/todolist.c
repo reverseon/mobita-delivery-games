@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "todolist.h"
-
+#include "../load/loadadt.h"
 
 void displayTodoList(ToDoList l)
 // void printInfo(ToDoList l);
@@ -25,4 +25,14 @@ void displayTodoList(ToDoList l)
         }
         counter++;
     }
+}
+
+void addQueuetoTodo(ToDoList *l , SortedQueue *SQ){
+    jumlahPesanan val = popsorted_pesanan(SQ);
+    PesananLL pesanan;
+    pesanan.pickup = val.pickup;
+    pesanan.dropoff = val.dropoff;
+    pesanan.itemtype = val.itemtype;
+    pesanan.timelimit = val.timelimit;
+    insertLastTodo(l, pesanan);
 }

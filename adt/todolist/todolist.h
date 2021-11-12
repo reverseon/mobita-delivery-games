@@ -13,4 +13,6 @@ void displayTodoList(ToDoList l);
 /* Jika list kosong : menulis [] */
 /* Tidak ada tambahan karakter apa pun di awal, akhir, atau di tengah */
 
+void addQueuetoTodo();
+
 #endif

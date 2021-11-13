@@ -1,5 +1,0 @@
-Copas ini: 
-gcc -o driver_todo driver_todo.c ../sorted_queue/sorted_queue.c todolist.c inprogress.c node.c ../configuration_c/konfigurasi_c.c ../configuration_c/charmachine.c ../configuration_c/wordmachine.c
-
-Lalu copas ini:
-.\driver_todo.exe

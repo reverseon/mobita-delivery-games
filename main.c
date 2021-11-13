@@ -10,18 +10,18 @@ void commandProcess() {
     printf("ENTER COMMAND: ");readCommand(command);
     if (IsCommandSama(*command,StringToKata("MOVE"))) {
         move_command_MapMat();
-        // jumlahPesanan out = sq->root->data;
-        // while(out.time <= _time){
-        //     addQueuetoTodo(&TL, sq);
-        //     out = sq->root->data;
-        // } 
+        jumlahPesanan out = sq->root->data;
+        while(out.time <= _time){
+            addQueuetoTodo(&TL, sq);
+            out = sq->root->data;
+        } 
     } else if (IsCommandSama(*command,StringToKata("MAP"))) {
         map_command_MapMat();
     } else if (IsCommandSama(*command,StringToKata("EXIT"))) {
         printf("EXITING...\n");
         EXIT = true;
     } else if (IsCommandSama(*command,StringToKata("PICK_UP"))) {
-        // pickup_command();
+        pickup_command();
     }  else if (IsCommandSama(*command,StringToKata("TO_DO"))) {
         displayTodoList(TL);
     }

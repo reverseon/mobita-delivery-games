@@ -18,8 +18,9 @@ POINT _currentLocPOINT;
 char _currentLocBuilding;
 int _time;
 int _money;
-// SortedQueue* sq;
+sorted_pesanan* sq;
 ToDoList TL;
+Tas backpack;
 
 
 jumlahPesanan* konfigurasiC(int a);

@@ -2,6 +2,8 @@
 #define TODOLIST_H
 
 #include "../linked_list/list_linked.h"
+#include "../queue_pesanan/queue_pesanan.h"
+#include "../load/jumlahPesanan.h"
 
 typedef ListLL ToDoList;
 
@@ -13,6 +15,6 @@ void displayTodoList(ToDoList l);
 /* Jika list kosong : menulis [] */
 /* Tidak ada tambahan karakter apa pun di awal, akhir, atau di tengah */
 
-void addQueuetoTodo();
+void addQueuetoTodo(ToDoList *l , sorted_pesanan *SQ);
 
 #endif

@@ -23,7 +23,7 @@ void commandProcess() {
     } else if (IsCommandSama(*command,StringToKata("PICK_UP"))) {
         // pickup_command();
     }  else if (IsCommandSama(*command,StringToKata("TO_DO"))) {
-        // displayTodoList(TL);
+        displayTodoList(TL);
     }
     else {
         printf("Command Invalid\n");

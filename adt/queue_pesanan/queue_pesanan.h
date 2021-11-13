@@ -2,7 +2,7 @@
 #define SORTED_QUEUE_H
 
 #include "../boolean/boolean.h"
-#include "../load/loadData.h"
+#include "../load/jumlahPesanan.h"
 
 typedef struct queue_pesanan queue_pesanan;
 struct queue_pesanan{
@@ -10,9 +10,10 @@ struct queue_pesanan{
     queue_pesanan* next;
 };
 
-typedef struct {
+struct sortpes {
     queue_pesanan* root;
-}sorted_pesanan;
+};
+typedef struct sortpes sorted_pesanan;
 
 boolean isEmptysorted_pesanan(sorted_pesanan* self);
 

@@ -1,10 +1,10 @@
 #ifndef MAPS_FUNCTION_H
 #define MAPS_FUNCTION_H
 #include <stdio.h>
-#include "../configuration_c/loadData.h"
-#include "pcolor.h"
+#include "../load/loadData.h"
+#include "../pcolor/pcolor.h"
 
-POINT sLocHandler(ArrDin l, ElType namaGedung);
+POINT sLocHandler(ListBangunan l, ElType_ListBangunan namaGedung);
 
 int buildingCharToInt(char b);
 

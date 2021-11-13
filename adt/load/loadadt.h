@@ -2,6 +2,7 @@
 #define LOAD_ADT_H
 
 #include "../boolean/boolean.h"
+#include "jumlahPesanan.h"
 #include "../dynamic_list/dynamiclist.h"
 #include "../input_process/wordmachine.h"
 #include "../linked_list/list_linked.h"

@@ -7,11 +7,11 @@ char availdest[28];
 boolean availdest_init = false;
 int countAvailableBuilding;
 
-POINT sLocHandler(ArrDin l, ElType namaGedung) {
+POINT sLocHandler(ListBangunan l, ElType_ListBangunan namaGedung) {
     if (namaGedung == '8') {
         return MakePOINT(x_hq, y_hq);
     } else {
-        return showLocation(l, namaGedung);
+        return showLocation_ListBangunan(l, namaGedung);
     }
 }
 
@@ -21,8 +21,8 @@ void availdestload() {
     for (int i = 0; i < 27; i++) {
         availdest[i] = ' ';
     }
-    for (int j = 0; j < adjacencyMatrix.cEff; j++) {
-        if (adjacencyMatrix.a[buildingCharToInt(_currentLocBuilding)][j] == 1) {
+    for (int j = 0; j < adjacencyMatrix.colEff; j++) {
+        if (adjacencyMatrix.contents[buildingCharToInt(_currentLocBuilding)][j] == 1) {
             availdest[countAvailableBuilding] = buildingIntToChar(j);
             countAvailableBuilding++;
         }
@@ -93,7 +93,7 @@ void map_command() {
             temp = MakePOINT(i, j);
             if (i == 0 || i == row+1 || j == 0 || j == col+1) {
                 printf("*");
-            } else if (EQ(temp, hq_coor)) {
+            } else if (EQPOINT(temp, hq_coor)) {
                 if (_currentLocBuilding == '8') {
                     print_yellow('8');
                 } else {
@@ -110,24 +110,24 @@ void map_command() {
                         printf("8");
                     }
                 }
-            } else if (travBuild <= NEFF(tole)) {
+            } else if (travBuild <= NEFF_ListBangunan(tole)) {
                 boolean found = false;
-                for (int bt = 0; bt < NEFF(tole); bt++) {
-                    if (EQ(temp, COORDINAT(tole, bt))) {
-                        if (ELMT(tole, bt) == _currentLocBuilding) {
-                            print_yellow(ELMT(tole, bt));
+                for (int bt = 0; bt < NEFF_ListBangunan(tole); bt++) {
+                    if (EQPOINT(temp, COORDINAT_ListBangunan(tole, bt))) {
+                        if (ELMT_ListBangunan(tole, bt) == _currentLocBuilding) {
+                            print_yellow(ELMT_ListBangunan(tole, bt));
                         } else {
                             boolean can_move = false;
                             for (int availtrav = 1; availtrav <= countAvailableBuilding; availtrav++) {
-                                if (availdest[availtrav] == ELMT(tole, bt)) {
+                                if (availdest[availtrav] == ELMT_ListBangunan(tole, bt)) {
                                     can_move = true;
                                     break;
                                 }
                             }
                             if (can_move) {
-                                print_green(ELMT(tole, bt));
+                                print_green(ELMT_ListBangunan(tole, bt));
                             } else {
-                                printf("%c", ELMT(tole, bt));
+                                printf("%c", ELMT_ListBangunan(tole, bt));
                             }
                         }
                         found = true;

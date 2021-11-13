@@ -8,16 +8,6 @@
 // #include "../linked_list/node.h"
 // #include "../stack/stack.h"
 
-typedef struct jumlahPesanan jumlahPesanan;
-struct jumlahPesanan
-{
-    int time;
-    char pickup;
-    char dropoff;
-    char itemtype;
-    int timelimit;
-};
-
 int max,row,col;
 int jmlPesanan;
 int x_hq,y_hq;
@@ -29,7 +19,7 @@ char _currentLocBuilding;
 int _time;
 int _money;
 // SortedQueue* sq;
-// ToDoList TL;
+ToDoList TL;
 
 
 jumlahPesanan* konfigurasiC(int a);

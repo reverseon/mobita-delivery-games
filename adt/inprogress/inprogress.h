@@ -14,15 +14,6 @@ void displayProgressList(ProgressList l);
 /* Jika list kosong : menulis [] */
 /* Tidak ada tambahan karakter apa pun di awal, akhir, atau di tengah */
 
-void addTodotoProgress(ProgressList *l, ToDoList *tl, char locationbuilding)
-{
-    int index = indexOfPickupLL(*tl,locationbuilding);
-    if(index >= 0){
-        PesananLL pesanan = getElmtLL(*tl, index);
-        PesananLL sampah;
-        deleteAtLL(tl, index, &sampah);
-        insertFirstLL(l, pesanan);
-    }
-}
+void addTodotoProgress(ProgressList *l, ToDoList *tl, char locationbuilding);
 
 #endif

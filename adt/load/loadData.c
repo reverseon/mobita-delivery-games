@@ -75,10 +75,10 @@ void load_data(char* filename){
     advWord();
     J = konfigurasiC(jmlPesanan);
 
-    sq = makeSQ(J, jmlPesanan);
-    jumlahPesanan out = sq->root->data;
-    while(out.time <= _time){
-        addQueuetoTodo(&TL, sq);
-        out = sq->root->data;
-    } 
+    // sq = makeSQ(J, jmlPesanan);
+    // jumlahPesanan out = sq->root->data;
+    // while(out.time <= _time){
+    //     addQueuetoTodo(&TL, sq);
+    //     out = sq->root->data;
+    // } 
 }

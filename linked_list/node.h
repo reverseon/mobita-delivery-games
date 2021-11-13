@@ -27,7 +27,7 @@ typedef struct nodeListProgress {
     AddressProgress next;
 } NodeListProgress;
 
-#define INFO(p) (p)-> info
+#define INFO(p) (p)->info
 #define NEXT(p) (p)->next
 
 

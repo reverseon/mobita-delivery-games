@@ -25,3 +25,14 @@ void displayProgressList(ProgressList l)
         counter++;
     }
 }
+
+void addTodotoProgress(ProgressList *l, ToDoList *tl, char locationbuilding)
+{
+    int index = indexOfPickupLL(*tl,locationbuilding);
+    if(index >= 0){
+        PesananLL pesanan = getElmtLL(*tl, index);
+        PesananLL sampah;
+        deleteAtLL(tl, index, &sampah);
+        insertFirstLL(l, pesanan);
+    }
+}

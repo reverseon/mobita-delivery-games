@@ -21,8 +21,11 @@ int _money;
 sorted_pesanan* sq;
 ToDoList TL;
 Tas backpack;
+<<<<<<< HEAD
 int _waktuTambahan;
 ProgressList _ListOfProggress;
+=======
+>>>>>>> 7d58e1bd1b819bed2f7a560b43ac4067d8530fc8
 
 
 jumlahPesanan* konfigurasiC(int a);

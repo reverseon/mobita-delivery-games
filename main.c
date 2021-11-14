@@ -11,6 +11,7 @@ void commandProcess() {
     if (IsCommandSama(*command,StringToKata("MOVE"))) {
         move_command_MapMat();
         jumlahPesanan out = sq->root->data;
+<<<<<<< HEAD
         while(out.time <= _time && out.time != -1){
             addQueuetoTodo(&TL, sq);
             out = sq->root->data;
@@ -19,6 +20,12 @@ void commandProcess() {
         // Update perishable item
         updatePerishable(&backpack);
 
+=======
+        while(out.time <= _time){
+            addQueuetoTodo(&TL, sq);
+            out = sq->root->data;
+        } 
+>>>>>>> 7d58e1bd1b819bed2f7a560b43ac4067d8530fc8
     } else if (IsCommandSama(*command,StringToKata("MAP"))) {
         map_command_MapMat();
     } else if (IsCommandSama(*command,StringToKata("EXIT"))) {

@@ -3,7 +3,10 @@
 
 #include "../boolean/boolean.h"
 #include "../linked_list/nodeLL.h"
+<<<<<<< HEAD
 #include "../linked_list/list_linked.h"
+=======
+>>>>>>> 7d58e1bd1b819bed2f7a560b43ac4067d8530fc8
 
 #define IDX_UNDEF_STACK -1
 #define CAPACITY_STACK 100
@@ -21,6 +24,9 @@ boolean isEmptyTas(Tas s);
 boolean isFullTas(Tas s);
 void pushTas(Tas *s, ElTypeTas val);
 void popTas(Tas *s, ElTypeTas *val);
+<<<<<<< HEAD
 void updatePerishable(Tas *s);
+=======
+>>>>>>> 7d58e1bd1b819bed2f7a560b43ac4067d8530fc8
 
 #endif

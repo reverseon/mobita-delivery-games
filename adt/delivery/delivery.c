@@ -1,22 +1,32 @@
 #include "delivery.h"
 #include <stdio.h>
 
+<<<<<<< HEAD
 
 ElTypeNODELL _sampah;
+=======
+>>>>>>> 7d58e1bd1b819bed2f7a560b43ac4067d8530fc8
 void pickup_command (){
       if(indexOfPickupLL(TL,_currentLocBuilding) != IDX_UNDEF_LL){
         int idxTodo = indexOfPickupLL(TL,_currentLocBuilding);
         pushTas(&backpack,getElmtLL(TL,idxTodo));
+<<<<<<< HEAD
         deleteAtLL(&TL,idxTodo, &_sampah);
         addTodotoProgress(&_ListOfProggress,&TL,_currentLocBuilding);
 
 
         ElTypeNODELL item = _sampah;
+=======
+        ElTypeNODELL item = getElmtLL(TL, idxTodo);
+>>>>>>> 7d58e1bd1b819bed2f7a560b43ac4067d8530fc8
         if (item.itemtype == 'N'){
           printf("Pesanan berupa Normal item berhasil diambil\n");
         } else if(item.itemtype == 'H'){
           printf("Pesanan berupa Heavy item berhasil diambil\n");
+<<<<<<< HEAD
           _waktuTambahan++;
+=======
+>>>>>>> 7d58e1bd1b819bed2f7a560b43ac4067d8530fc8
         } else if(item.itemtype == 'P'){
           printf("Pesanan berupa Perishable item berhasil diambil\n");  
         } else if(item.itemtype == 'V'){
@@ -29,6 +39,7 @@ void pickup_command (){
       }
 }
 
+<<<<<<< HEAD
 void updatePerishable(Tas *s)
 {
     Tas temp;
@@ -53,3 +64,6 @@ void updatePerishable(Tas *s)
         pushTas(s, sampah);
     }
 }
+=======
+
+>>>>>>> 7d58e1bd1b819bed2f7a560b43ac4067d8530fc8

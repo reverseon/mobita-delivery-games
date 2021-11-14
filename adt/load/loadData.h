@@ -23,6 +23,7 @@ ToDoList TL;
 Tas backpack;
 int _waktuTambahan;
 ProgressList _ListOfProggress;
+List_inventory _inventory;
 
 
 jumlahPesanan* konfigurasiC(int a);

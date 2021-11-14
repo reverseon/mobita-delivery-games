@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "loadData.h"
+#include "../inventory/inventory.h"
 
 jumlahPesanan* konfigurasiC(int jumlah) {
 
@@ -37,6 +38,11 @@ jumlahPesanan* konfigurasiC(int jumlah) {
 }
 
 void load_data(char* filename){
+    // Membuat inventory kosong
+    CreateList_inventory(&_inventory);
+    SetElmnt_inventory(&_inventory, 0, "Senter Pembesar");
+    SetElmnt_inventory(&_inventory, 3, "Mesin Waktu");
+
     _time = 0;
     _waktuTambahan=0;
     _money = 0;

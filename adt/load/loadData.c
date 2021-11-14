@@ -82,11 +82,8 @@ void load_data(char* filename){
         addQueuetoTodo(&TL, sq);
         out = sq->root->data;
     } 
-<<<<<<< HEAD
 
     CreateTas(&backpack);
     CreateListLL(&_ListOfProggress);
     CreateListLL(&TL);
-=======
->>>>>>> 7d58e1bd1b819bed2f7a560b43ac4067d8530fc8
 }

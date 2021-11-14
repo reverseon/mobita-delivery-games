@@ -38,6 +38,7 @@ jumlahPesanan* konfigurasiC(int jumlah) {
 
 void load_data(char* filename){
     _time = 0;
+    _waktuTambahan=0;
     _money = 0;
     jmlPesanan = 0;
     startWord(filename);
@@ -81,4 +82,8 @@ void load_data(char* filename){
         addQueuetoTodo(&TL, sq);
         out = sq->root->data;
     } 
+
+    CreateTas(&backpack);
+    CreateListLL(&_ListOfProggress);
+    CreateListLL(&TL);
 }

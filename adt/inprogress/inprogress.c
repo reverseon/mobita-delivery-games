@@ -11,14 +11,14 @@ void displayProgressList(ProgressList l)
 {
     int counter = 0;
     ElTypeNODELL val;
-    while(counter < lengthProgressList(l)) {
+    while(counter < lengthLL(l)) {
         val = getElmtLL(l, counter);
         if (val.itemtype == 'N'){
             printf("%d. Normal Item (Tujuan: %c)\n", counter+1, val.dropoff);
         } else if(val.itemtype == 'H'){
             printf("%d. Heavy Item (Tujuan: %c)\n", counter+1, val.dropoff);
         } else if(val.itemtype == 'P'){
-            printf("%d. Perishable Item (Tujuan: %c, sisa waktu: %d) %d\n", counter+1, val.dropoff, val.timelimit);
+            printf("%d. Perishable Item (Tujuan: %c, sisa waktu: %d)\n", counter+1, val.dropoff, val.timelimit);
         } else if(val.itemtype == 'V'){
             printf("%d. VIP Item (Tujuan: %c)\n", counter+1, val.dropoff);
         }
@@ -32,7 +32,6 @@ void addTodotoProgress(ProgressList *l, ToDoList *tl, char locationbuilding)
     if(index >= 0){
         PesananLL pesanan = getElmtLL(*tl, index);
         PesananLL sampah;
-        deleteAtLL(tl, index, &sampah);
         insertFirstLL(l, pesanan);
     }
 }

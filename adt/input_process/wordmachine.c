@@ -128,6 +128,7 @@ int KataToInt (Word kata) {
          case '7' : num += 7; break;
          case '8' : num += 8; break;
          case '9' : num += 9; break;
+         default : return -1000;
          }
          i++;
    }

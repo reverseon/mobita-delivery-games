@@ -11,10 +11,14 @@ void commandProcess() {
     if (IsCommandSama(*command,StringToKata("MOVE"))) {
         move_command_MapMat();
         jumlahPesanan out = sq->root->data;
-        while(out.time <= _time){
+        while(out.time <= _time && out.time != -1){
             addQueuetoTodo(&TL, sq);
             out = sq->root->data;
-        } 
+        }
+        
+        // Update perishable item
+        updatePerishable(&backpack);
+
     } else if (IsCommandSama(*command,StringToKata("MAP"))) {
         map_command_MapMat();
     } else if (IsCommandSama(*command,StringToKata("EXIT"))) {
@@ -24,6 +28,8 @@ void commandProcess() {
         pickup_command();
     }  else if (IsCommandSama(*command,StringToKata("TO_DO"))) {
         displayTodoList(TL);
+    } else if (IsCommandSama(*command,StringToKata("IN_PROGRESS"))) {
+        displayProgressList(_ListOfProggress);
     }
     else {
         printf("Command Invalid\n");
@@ -37,7 +43,7 @@ void displayStats() {
 }
 
 int main() {
-    load_data("configuration_c/rutin.txt");
+    load_data("savefile/test.txt");
     while (!EXIT) {
         displayStats();
         printf("\n");

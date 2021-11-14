@@ -2,7 +2,8 @@
 #define PROGRESSLIST_H
 
 #include "../linked_list/list_linked.h"
-#include "../load/loadadt.h"
+#include "../linked_list/nodeLL.h"
+#include "../todolist/todolist.h"
 
 typedef ListLL ProgressList;
 
@@ -15,5 +16,4 @@ void displayProgressList(ProgressList l);
 /* Tidak ada tambahan karakter apa pun di awal, akhir, atau di tengah */
 
 void addTodotoProgress(ProgressList *l, ToDoList *tl, char locationbuilding);
-
 #endif

@@ -1,6 +1,0 @@
-make.exe --dry-run --keep-going --print-directory
-make.exe: Entering directory `d:/ITB/SEMESTER 3/IF2110 Algoritma & Struktur Data/Tugas Besar/prog/real/Alstrukdat_Kel08_K03'
-gcc -o main main.c adt/map/map.c adt/load/loadData.c adt/input_process/charmachine.c adt/input_process/wordmachine.c adt/pcolor/pcolor.c adt/matrix/matrix.c adt/bangunan/bangunan.c adt/point/point.c adt/adjacencymatrix/adjacencymatrix.c adt/queue_pesanan/queue_pesanan.c adt/todolist/todolist.c adt/linked_list/list_linked.c adt/linked_list/nodeLL.c adt/delivery/delivery.c adt/tas/tas.c -g -Wall 
- 
-make.exe: Leaving directory `d:/ITB/SEMESTER 3/IF2110 Algoritma & Struktur Data/Tugas Besar/prog/real/Alstrukdat_Kel08_K03'
- 

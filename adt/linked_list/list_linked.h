@@ -171,4 +171,6 @@ void splitListLL(ListLL *l1, ListLL *l2, ListLL l);
 /* l1 berisi separuh elemen L dan l2 berisi sisa elemen L */
 /* Jika elemen L ganjil, maka separuh adalah length(L) div 2 */
 
+int indexOfExpiredPerish(ListLL l, char val);
+
 #endif

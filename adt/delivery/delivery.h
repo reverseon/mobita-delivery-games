@@ -4,7 +4,7 @@
 #include "../load/loadData.h"
 #include "../boolean/boolean.h"
 
-
 void pickup_command();
+void updatePerishable(Tas *s);
 
 #endif

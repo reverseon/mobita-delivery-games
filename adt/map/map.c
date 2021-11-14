@@ -112,7 +112,7 @@ char buildingIntToChar_MapMat(int a) {
 void move_to_MapMat(char building) {
     _currentLocBuilding = building;
     _currentLocPOINT = sLocHandler_MapMat(tole, building);
-    _time += 1;
+    _time = _time + _waktuTambahan +  1;
     availdest_init = false;
 }
 

@@ -10,7 +10,7 @@ AddressNODELL newNode(ElTypeNODELL val) {
         PICKUPNODELL(p) = val.pickup;
         DROPOFFNODELL(p) = val.dropoff;
         ITEMTYPENODELL(p) = val.itemtype;
-        TIMELIMITNODELL(p) = val.timelimit;
+        TIMELIMITNODELL(p) = (&val.timelimit != NULL) ? val.timelimit : -2;
         NEXTNODELL(p) = NULL;
     }
     return p;

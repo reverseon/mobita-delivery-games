@@ -105,34 +105,40 @@ void insertAtLL(ListLL *l, ElTypeNODELL val, int idx) {
     }
 }
 void deleteFirstLL(ListLL *l, ElTypeNODELL *val) {
-    *val = INFONODELL(*l);
-    FIRSTLL(*l) = NEXTNODELL(*l);
+    if (!isEmptyLL(*l)) {
+        *val = INFONODELL(*l);
+        FIRSTLL(*l) = NEXTNODELL(*l);
+    }
 }
 void deleteLastLL(ListLL *l, ElTypeNODELL *val) {
-    if (lengthLL(*l) == 1) {
-        deleteFirstLL(l, val);
-    } else {
-        AddressNODELL op1 = FIRSTLL(*l);
-        AddressNODELL op2 = NEXTNODELL(op1);
-        while (NEXTNODELL(op2) != NULL) {
-            op1 = op2;
-            op2 = NEXTNODELL(op2);
+    if(!isEmptyLL(*l)){
+        if (lengthLL(*l) == 1) {
+            deleteFirstLL(l, val);
+        } else {
+            AddressNODELL op1 = FIRSTLL(*l);
+            AddressNODELL op2 = NEXTNODELL(op1);
+            while (NEXTNODELL(op2) != NULL) {
+                op1 = op2;
+                op2 = NEXTNODELL(op2);
+            }
+            *val = INFONODELL(op2);
+            NEXTNODELL(op1) = NULL;
         }
-        *val = INFONODELL(op2);
-        NEXTNODELL(op1) = NULL;
     }
 }
 void deleteAtLL(ListLL *l, int idx, ElTypeNODELL *val) {
-    if (idx == 0) {
-        deleteFirstLL(l, val);
-    } else {
-        AddressNODELL op = FIRSTLL(*l);
-        int i = 0;
-        for (i = 0; i < idx-1; i++) {
-            op = NEXTNODELL(op);
+    if(!isEmptyLL(*l)){
+        if (idx == 0) {
+            deleteFirstLL(l, val);
+        } else {
+            AddressNODELL op = FIRSTLL(*l);
+            int i = 0;
+            for (i = 0; i < idx-1; i++) {
+                op = NEXTNODELL(op);
+            }
+            *val = INFONODELL(NEXTNODELL(op));
+            NEXTNODELL(op) = NEXTNODELL(NEXTNODELL(op));
         }
-        *val = INFONODELL(NEXTNODELL(op));
-        NEXTNODELL(op) = NEXTNODELL(NEXTNODELL(op));
     }
 }
 void displayListLL(ListLL l) {
@@ -157,6 +163,28 @@ int lengthLL(ListLL l) {
         i++;
     }
     return i;
+}
+int indexOfExpiredPerish(ListLL l, char val) {
+    if (isEmptyLL(l)) {
+        return IDX_UNDEF_LL;
+    } else {
+        AddressNODELL op = FIRSTLL(l);
+        boolean found = false;
+        int i = 0;
+        while (!found && op != NULL) {
+            if (ITEMTYPENODELL(op) == val && (TIMELIMITNODELL(op) == 0)) {
+                found = true;
+            } else {
+                op = NEXTNODELL(op);
+                i++;
+            }
+        }
+        if (op == NULL) {
+            return IDX_UNDEF_LL;
+        } else {
+            return i;
+        }
+    }
 }
 
 // boolean fSearchLL(ListLL L, AddressNODELL P) {

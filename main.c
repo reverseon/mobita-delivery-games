@@ -3,6 +3,31 @@
 // #include "stack/stack.h"
 #define endl printf("\n")
 
+int strlen_main(const char* a)
+{
+    int result = 0;
+    while(a[result++] != '\0') {
+    }
+    return result - 1;
+}
+
+
+boolean strcmp_main(const char* a, const char* b) {
+    int aLen = strlen_main(a);
+    int bLen = strlen_main(b);
+    if(aLen != bLen) {
+        return false;
+    }
+    int index = 0;
+    while(a[index] != '\0') {
+        if(a[index] != b[index]) {
+            return false;
+        }
+        index++;
+    }
+    return true;
+}
+
 boolean EXIT = false;
 
 void commandProcess() {
@@ -51,6 +76,14 @@ void commandProcess() {
                 {
                     SetElmnt_inventory(&_inventory, 0, "-");
                     printf("%s berhasil digunakan\n", pakai_gadget);
+                    // Cek apakah nama gadget
+                    if(strcmp_main(pakai_gadget, "Pintu Kemana Saja") == true) {
+                        printf("swosh to a location");
+                    }
+                    if(strcmp_main(pakai_gadget, "Mesin Waktu") == true) {
+                        printf("Waktu berkurang");
+                    }
+
                 }
                 break;
             case 2:

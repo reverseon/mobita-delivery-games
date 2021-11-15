@@ -35,70 +35,70 @@ void commandProcess() {
         printf("\n\nENTER COMMAND: ");
         int use_item;
         scanf("%d", &use_item);
-        char returnStr[255];
+        char pakai_gadget[255];
         switch (use_item)
         {
             case 0:
                 printf("Menutup Inventory\n");
                 break;
             case 1:
-                GetElmt_inventory(_inventory, 0, returnStr);
-                if (returnStr[0]=='-')
+                GetElmt_inventory(_inventory, 0, pakai_gadget);
+                if (pakai_gadget[0]=='-')
                 {
                     printf("Tidak ada Gadget yang dapat digunakan!\n");
                 }
                 else
                 {
                     SetElmnt_inventory(&_inventory, 0, "-");
-                    printf("%s berhasil digunakan\n", returnStr);
+                    printf("%s berhasil digunakan\n", pakai_gadget);
                 }
                 break;
             case 2:
-                GetElmt_inventory(_inventory, 1, returnStr);
-                if (returnStr[0]=='-')
+                GetElmt_inventory(_inventory, 1, pakai_gadget);
+                if (pakai_gadget[0]=='-')
                 {
                     printf("Tidak ada Gadget yang dapat digunakan!\n");
                 }
                 else
                 {
                     SetElmnt_inventory(&_inventory, 1, "-");
-                    printf("%s berhasil digunakan\n", returnStr);
+                    printf("%s berhasil digunakan\n", pakai_gadget);
                 }
                 break;
             case 3:
-                GetElmt_inventory(_inventory, 2, returnStr);
-                if (returnStr[0]=='-')
+                GetElmt_inventory(_inventory, 2, pakai_gadget);
+                if (pakai_gadget[0]=='-')
                 {
                     printf("Tidak ada Gadget yang dapat digunakan!\n");
                 }
                 else
                 {
                     SetElmnt_inventory(&_inventory, 2, "-");
-                    printf("%s berhasil digunakan\n", returnStr);
+                    printf("%s berhasil digunakan\n", pakai_gadget);
                 }
                 break;
             case 4:
-                GetElmt_inventory(_inventory, 3, returnStr);
-                if (returnStr[0]=='-')
+                GetElmt_inventory(_inventory, 3, pakai_gadget);
+                if (pakai_gadget[0]=='-')
                 {
                     printf("Tidak ada Gadget yang dapat digunakan!\n");
                 }
                 else
                 {
                     SetElmnt_inventory(&_inventory, 3, "-");
-                    printf("%s berhasil digunakan\n", returnStr);
+                    printf("%s berhasil digunakan\n", pakai_gadget);
                 }
                 break;
             case 5:
-                GetElmt_inventory(_inventory, 4, returnStr);
-                if (returnStr[0]=='-')
+                GetElmt_inventory(_inventory, 4, pakai_gadget);
+                if (pakai_gadget[0]=='-')
                 {
                     printf("Tidak ada Gadget yang dapat digunakan!\n");
                 }
                 else
                 {
                     SetElmnt_inventory(&_inventory, 4, "-");
-                    printf("%s berhasil digunakan\n", returnStr);
+                    printf("%s berhasil digunakan\n", pakai_gadget);
                 }
                 break;
             default:

@@ -33,7 +33,6 @@ void updatePerishable(Tas *s)
     CreateTas(&temp);
     ElTypeTas sampah,sampahPermanent;
     ElTypeNODELL sampahNode;
-    int idxIn;
     int idx = 0;
     while(!isEmptyTas(*s)){
         ElTypeNODELL itemDiInP = getElmtLL(_ListOfProggress, idx);
@@ -43,12 +42,13 @@ void updatePerishable(Tas *s)
             itemDiInP.timelimit = sampah.timelimit;
             setElmtLL(&_ListOfProggress, idx, itemDiInP);
             pushTas(&temp,sampah);
+            idx++;
         } else if (sampah.itemtype == 'P' && sampah.timelimit - 1 - _waktuTambahan <= 0) {
             deleteAtLL(&_ListOfProggress,idx,&sampahNode);        
         } else {
             pushTas(&temp,sampah);
+            idx++;
         } 
-        idx++;
     }
 
     while(!isEmptyTas(temp)) {

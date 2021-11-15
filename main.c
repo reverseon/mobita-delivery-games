@@ -60,6 +60,7 @@ void commandProcess() {
         printf("\n\nENTER COMMAND: ");
         int use_item;
         scanf("%d", &use_item);
+        getchar();
         char pakai_gadget[255];
         switch (use_item)
         {
@@ -78,12 +79,25 @@ void commandProcess() {
                     printf("%s berhasil digunakan\n", pakai_gadget);
                     // Cek apakah nama gadget
                     if(strcmp_main(pakai_gadget, "Pintu Kemana Saja") == true) {
-                        printf("swosh to a location");
+                        printf("Lokasi Tujuan: ");
+                        char teleport;
+                        scanf("%c", &teleport);
+                        getchar();
+                        if (teleport == '8')
+                        {
+                            _currentLocBuilding = '8';
+                            _currentLocPOINT = MakePOINT(1,1);
+                        }
+                        else
+                        {
+                            _currentLocBuilding = teleport;
+                            _currentLocPOINT = showLocation_ListBangunan(tole, teleport);
+                            printf("Anda telah tiba di %c", teleport);
+                        }
                     }
                     if(strcmp_main(pakai_gadget, "Mesin Waktu") == true) {
-                        printf("Waktu berkurang");
+                        _time = _time-50<0 ? 0 : _time-50;
                     }
-
                 }
                 break;
             case 2:
@@ -96,6 +110,27 @@ void commandProcess() {
                 {
                     SetElmnt_inventory(&_inventory, 1, "-");
                     printf("%s berhasil digunakan\n", pakai_gadget);
+                    // Cek apakah nama gadget
+                    if(strcmp_main(pakai_gadget, "Pintu Kemana Saja") == true) {
+                        printf("Lokasi Tujuan: ");
+                        char teleport;
+                        scanf("%c", &teleport);
+                        getchar();
+                        if (teleport == '8')
+                        {
+                            _currentLocBuilding = '8';
+                            _currentLocPOINT = MakePOINT(1,1);
+                        }
+                        else
+                        {
+                            _currentLocBuilding = teleport;
+                            _currentLocPOINT = showLocation_ListBangunan(tole, teleport);
+                            printf("Anda telah tiba di %c", teleport);
+                        }
+                    }
+                    if(strcmp_main(pakai_gadget, "Mesin Waktu") == true) {
+                        _time = _time-50<0 ? 0 : _time-50;
+                    }
                 }
                 break;
             case 3:
@@ -108,6 +143,27 @@ void commandProcess() {
                 {
                     SetElmnt_inventory(&_inventory, 2, "-");
                     printf("%s berhasil digunakan\n", pakai_gadget);
+                    // Cek apakah nama gadget
+                    if(strcmp_main(pakai_gadget, "Pintu Kemana Saja") == true) {
+                        printf("Lokasi Tujuan: ");
+                        char teleport;
+                        scanf("%c", &teleport);
+                        getchar();
+                        if (teleport == '8')
+                        {
+                            _currentLocBuilding = '8';
+                            _currentLocPOINT = MakePOINT(1,1);
+                        }
+                        else
+                        {
+                            _currentLocBuilding = teleport;
+                            _currentLocPOINT = showLocation_ListBangunan(tole, teleport);
+                            printf("Anda telah tiba di %c", teleport);
+                        }
+                    }
+                    if(strcmp_main(pakai_gadget, "Mesin Waktu") == true) {
+                        _time = _time-50<0 ? 0 : _time-50;
+                    }
                 }
                 break;
             case 4:
@@ -120,6 +176,27 @@ void commandProcess() {
                 {
                     SetElmnt_inventory(&_inventory, 3, "-");
                     printf("%s berhasil digunakan\n", pakai_gadget);
+                    // Cek apakah nama gadget
+                    if(strcmp_main(pakai_gadget, "Pintu Kemana Saja") == true) {
+                        printf("Lokasi Tujuan: ");
+                        char teleport;
+                        scanf("%c", &teleport);
+                        getchar();
+                        if (teleport == '8')
+                        {
+                            _currentLocBuilding = '8';
+                            _currentLocPOINT = MakePOINT(1,1);
+                        }
+                        else
+                        {
+                            _currentLocBuilding = teleport;
+                            _currentLocPOINT = showLocation_ListBangunan(tole, teleport);
+                            printf("Anda telah tiba di %c", teleport);
+                        }
+                    }
+                    if(strcmp_main(pakai_gadget, "Mesin Waktu") == true) {
+                        _time = _time-50<0 ? 0 : _time-50;
+                    }
                 }
                 break;
             case 5:
@@ -132,6 +209,27 @@ void commandProcess() {
                 {
                     SetElmnt_inventory(&_inventory, 4, "-");
                     printf("%s berhasil digunakan\n", pakai_gadget);
+                    // Cek apakah nama gadget
+                    if(strcmp_main(pakai_gadget, "Pintu Kemana Saja") == true) {
+                        printf("Lokasi Tujuan: ");
+                        char teleport;
+                        scanf("%c", &teleport);
+                        getchar();
+                        if (teleport == '8')
+                        {
+                            _currentLocBuilding = '8';
+                            _currentLocPOINT = MakePOINT(1,1);
+                        }
+                        else
+                        {
+                            _currentLocBuilding = teleport;
+                            _currentLocPOINT = showLocation_ListBangunan(tole, teleport);
+                            printf("Anda telah tiba di %c", teleport);
+                        }
+                    }
+                    if(strcmp_main(pakai_gadget, "Mesin Waktu") == true) {
+                        _time = _time-50<0 ? 0 : _time-50;
+                    }
                 }
                 break;
             default:
@@ -149,6 +247,7 @@ void commandProcess() {
         printf("ENTER COMMAND: ");
         int buy_item;
         scanf("%d", &buy_item);
+        getchar();
         char inventory_item[255];
         switch (buy_item)
         {

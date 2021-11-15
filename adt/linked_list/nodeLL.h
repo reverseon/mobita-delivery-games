@@ -7,6 +7,7 @@ typedef struct{
     char dropoff;
     char itemtype;
     int timelimit;
+    int timelimit_original;
 }PesananLL;
 
 
@@ -22,6 +23,7 @@ typedef struct nodeLL {
 #define DROPOFFNODELL(p) (p)->info.dropoff
 #define ITEMTYPENODELL(p) (p)->info.itemtype
 #define TIMELIMITNODELL(p) (p)->info.timelimit
+#define TIMELIMITORIGINAL(p) (p)->info.timelimit_original
 #define NEXTNODELL(p) (p)->next
 
 AddressNODELL newNode(ElTypeNODELL val);

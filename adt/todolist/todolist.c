@@ -33,5 +33,6 @@ void addQueuetoTodo(ToDoList *l , sorted_pesanan *SQ){
     pesanan.dropoff = val.dropoff;
     pesanan.itemtype = val.itemtype;
     pesanan.timelimit = val.timelimit;
+    pesanan.timelimit_original = val.timelimit;
     insertLastLL(l, pesanan);
 }

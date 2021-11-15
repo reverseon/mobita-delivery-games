@@ -105,6 +105,37 @@ void commandProcess() {
                     if(strcmp_main(pakai_gadget, "Mesin Waktu") == true) {
                         _time = _time-50<0 ? 0 : _time-50;
                     }
+                    if(strcmp_main(pakai_gadget, "Kain Pembungkus Waktu") == true) {
+                        Tas temp;
+                        CreateTas(&temp);
+                        ElTypeTas sampah,sampahPermanent;
+                        ElTypeNODELL sampahNode;
+                        int idx = 0;
+                        boolean found = false;
+                        while(!isEmptyTas(backpack) && !found) {
+                            ElTypeNODELL itemDiInP = getElmtLL(_ListOfProggress, idx);
+                            popTas(&backpack,&sampah);
+                            if (sampah.itemtype == 'P') {
+                                sampah.timelimit = sampah.timelimit_original;
+                                itemDiInP.timelimit = sampah.timelimit;
+                                setElmtLL(&_ListOfProggress, idx, itemDiInP);
+                                pushTas(&backpack,sampah);
+                                found = true;
+                            } else {
+                                pushTas(&temp,sampah);
+                                idx++;
+                            } 
+                        }
+
+                        while(!isEmptyTas(temp)) {
+                            popTas(&temp, &sampah);
+                            pushTas(&backpack, sampah);
+                        }
+                    }
+
+                    if(strcmp_main(pakai_gadget, "Senter Pembesar") == true) {
+                        _kapasitasTas = (_kapasitasTas*2)-100 < 0 ? 100 : (_kapasitasTas*2); 
+                    }
                 }
                 break;
             case 2:
@@ -137,6 +168,37 @@ void commandProcess() {
                     }
                     if(strcmp_main(pakai_gadget, "Mesin Waktu") == true) {
                         _time = _time-50<0 ? 0 : _time-50;
+                    }
+                    if(strcmp_main(pakai_gadget, "Kain Pembungkus Waktu") == true) {
+                        Tas temp;
+                        CreateTas(&temp);
+                        ElTypeTas sampah,sampahPermanent;
+                        ElTypeNODELL sampahNode;
+                        int idx = 0;
+                        boolean found = false;
+                        while(!isEmptyTas(backpack) && !found) {
+                            ElTypeNODELL itemDiInP = getElmtLL(_ListOfProggress, idx);
+                            popTas(&backpack,&sampah);
+                            if (sampah.itemtype == 'P') {
+                                sampah.timelimit = sampah.timelimit_original;
+                                itemDiInP.timelimit = sampah.timelimit;
+                                setElmtLL(&_ListOfProggress, idx, itemDiInP);
+                                pushTas(&backpack,sampah);
+                                found = true;
+                            } else {
+                                pushTas(&temp,sampah);
+                                idx++;
+                            } 
+                        }
+
+                        while(!isEmptyTas(temp)) {
+                            popTas(&temp, &sampah);
+                            pushTas(&backpack, sampah);
+                        }
+                    }
+
+                    if(strcmp_main(pakai_gadget, "Senter Pembesar") == true) {
+                        _kapasitasTas = (_kapasitasTas*2)-100 < 0 ? 100 : (_kapasitasTas*2); 
                     }
                 }
                 break;
@@ -171,6 +233,37 @@ void commandProcess() {
                     if(strcmp_main(pakai_gadget, "Mesin Waktu") == true) {
                         _time = _time-50<0 ? 0 : _time-50;
                     }
+                    if(strcmp_main(pakai_gadget, "Kain Pembungkus Waktu") == true) {
+                        Tas temp;
+                        CreateTas(&temp);
+                        ElTypeTas sampah,sampahPermanent;
+                        ElTypeNODELL sampahNode;
+                        int idx = 0;
+                        boolean found = false;
+                        while(!isEmptyTas(backpack) && !found) {
+                            ElTypeNODELL itemDiInP = getElmtLL(_ListOfProggress, idx);
+                            popTas(&backpack,&sampah);
+                            if (sampah.itemtype == 'P') {
+                                sampah.timelimit = sampah.timelimit_original;
+                                itemDiInP.timelimit = sampah.timelimit;
+                                setElmtLL(&_ListOfProggress, idx, itemDiInP);
+                                pushTas(&backpack,sampah);
+                                found = true;
+                            } else {
+                                pushTas(&temp,sampah);
+                                idx++;
+                            } 
+                        }
+
+                        while(!isEmptyTas(temp)) {
+                            popTas(&temp, &sampah);
+                            pushTas(&backpack, sampah);
+                        }
+                    }
+
+                    if(strcmp_main(pakai_gadget, "Senter Pembesar") == true) {
+                        _kapasitasTas = (_kapasitasTas*2)-100 < 0 ? 100 : (_kapasitasTas*2); 
+                    }
                 }
                 break;
             case 4:
@@ -203,6 +296,37 @@ void commandProcess() {
                     }
                     if(strcmp_main(pakai_gadget, "Mesin Waktu") == true) {
                         _time = _time-50<0 ? 0 : _time-50;
+                    }
+                    if(strcmp_main(pakai_gadget, "Kain Pembungkus Waktu") == true) {
+                        Tas temp;
+                        CreateTas(&temp);
+                        ElTypeTas sampah,sampahPermanent;
+                        ElTypeNODELL sampahNode;
+                        int idx = 0;
+                        boolean found = false;
+                        while(!isEmptyTas(backpack) && !found) {
+                            ElTypeNODELL itemDiInP = getElmtLL(_ListOfProggress, idx);
+                            popTas(&backpack,&sampah);
+                            if (sampah.itemtype == 'P') {
+                                sampah.timelimit = sampah.timelimit_original;
+                                itemDiInP.timelimit = sampah.timelimit;
+                                setElmtLL(&_ListOfProggress, idx, itemDiInP);
+                                pushTas(&backpack,sampah);
+                                found = true;
+                            } else {
+                                pushTas(&temp,sampah);
+                                idx++;
+                            } 
+                        }
+
+                        while(!isEmptyTas(temp)) {
+                            popTas(&temp, &sampah);
+                            pushTas(&backpack, sampah);
+                        }
+                    }
+
+                    if(strcmp_main(pakai_gadget, "Senter Pembesar") == true) {
+                        _kapasitasTas = (_kapasitasTas*2)-100 < 0 ? 100 : (_kapasitasTas*2); 
                     }
                 }
                 break;
@@ -237,6 +361,37 @@ void commandProcess() {
                     if(strcmp_main(pakai_gadget, "Mesin Waktu") == true) {
                         _time = _time-50<0 ? 0 : _time-50;
                     }
+                    if(strcmp_main(pakai_gadget, "Kain Pembungkus Waktu") == true) {
+                        Tas temp;
+                        CreateTas(&temp);
+                        ElTypeTas sampah,sampahPermanent;
+                        ElTypeNODELL sampahNode;
+                        int idx = 0;
+                        boolean found = false;
+                        while(!isEmptyTas(backpack) && !found) {
+                            ElTypeNODELL itemDiInP = getElmtLL(_ListOfProggress, idx);
+                            popTas(&backpack,&sampah);
+                            if (sampah.itemtype == 'P') {
+                                sampah.timelimit = sampah.timelimit_original;
+                                itemDiInP.timelimit = sampah.timelimit;
+                                setElmtLL(&_ListOfProggress, idx, itemDiInP);
+                                pushTas(&backpack,sampah);
+                                found = true;
+                            } else {
+                                pushTas(&temp,sampah);
+                                idx++;
+                            } 
+                        }
+
+                        while(!isEmptyTas(temp)) {
+                            popTas(&temp, &sampah);
+                            pushTas(&backpack, sampah);
+                        }
+                    }
+
+                    if(strcmp_main(pakai_gadget, "Senter Pembesar") == true) {
+                        _kapasitasTas = (_kapasitasTas*2)-100 < 0 ? 100 : (_kapasitasTas*2); 
+                    }
                 }
                 break;
             default:
@@ -256,6 +411,7 @@ void commandProcess() {
         scanf("%d", &buy_item);
         getchar();
         char inventory_item[255];
+        _money = 100000;
         switch (buy_item)
         {
             case 0:

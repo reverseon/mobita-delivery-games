@@ -11,6 +11,7 @@ AddressNODELL newNode(ElTypeNODELL val) {
         DROPOFFNODELL(p) = val.dropoff;
         ITEMTYPENODELL(p) = val.itemtype;
         TIMELIMITNODELL(p) = (&val.timelimit != NULL) ? val.timelimit : -2;
+        TIMELIMITORIGINAL(p) = (&val.timelimit != NULL) ? val.timelimit : -2;
         NEXTNODELL(p) = NULL;
     }
     return p;

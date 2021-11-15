@@ -134,7 +134,7 @@ void commandProcess() {
                     }
 
                     if(strcmp_main(pakai_gadget, "Senter Pembesar") == true) {
-                        _kapasitasTas = (_kapasitasTas*2)-100 < 0 ? 100 : (_kapasitasTas*2); 
+                       _kapasitasTas = (_kapasitasTas*2)-100 < 0 ? (_kapasitasTas*2) : 100; 
                     }
                 }
                 break;
@@ -198,7 +198,7 @@ void commandProcess() {
                     }
 
                     if(strcmp_main(pakai_gadget, "Senter Pembesar") == true) {
-                        _kapasitasTas = (_kapasitasTas*2)-100 < 0 ? 100 : (_kapasitasTas*2); 
+                        _kapasitasTas = (_kapasitasTas*2)-100 < 0 ? (_kapasitasTas*2) : 100; 
                     }
                 }
                 break;
@@ -262,7 +262,7 @@ void commandProcess() {
                     }
 
                     if(strcmp_main(pakai_gadget, "Senter Pembesar") == true) {
-                        _kapasitasTas = (_kapasitasTas*2)-100 < 0 ? 100 : (_kapasitasTas*2); 
+                        _kapasitasTas = (_kapasitasTas*2)-100 < 0 ? (_kapasitasTas*2) : 100; 
                     }
                 }
                 break;
@@ -326,7 +326,7 @@ void commandProcess() {
                     }
 
                     if(strcmp_main(pakai_gadget, "Senter Pembesar") == true) {
-                        _kapasitasTas = (_kapasitasTas*2)-100 < 0 ? 100 : (_kapasitasTas*2); 
+                        _kapasitasTas = (_kapasitasTas*2)-100 < 0 ? (_kapasitasTas*2) : 100; 
                     }
                 }
                 break;

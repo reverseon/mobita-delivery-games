@@ -98,4 +98,5 @@ void load_data(char* filename){
     _incCapacity = false;
     _returnToSender = false;
     _moveCounter = 0;
+    _perishableLoss = 0;
 }

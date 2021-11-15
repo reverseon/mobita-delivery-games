@@ -33,6 +33,9 @@ boolean strcmp_main(const char* a, const char* b) {
 void commandProcess() {
     Word* command = (Word*)malloc(sizeof(Word));
     printf("ENTER COMMAND: ");
+    // if (_currentLocBuilding == '8' && isEmptyLL(TL) && isEmptyTas(backpack) && isEmptyLL(_ListOfProggress)) {
+    //     EXIT = true;
+    // }
     startWordInput();
     if (IsCommandSama(currentWord,StringToKata("MOVE"))) {
         move_command_MapMat();
@@ -673,9 +676,20 @@ void displayStats() {
 }
 
 int main() {
-    load_data("savefile/test.txt");
+    printf("masukkan nama file: "); startWordInput();
+    endl;
+    char* filenamewithext = KataToString(concatKata(currentWord, StringToKata(".txt")));
+    printf("%s has been loaded...\nEnjoy\n", filenamewithext);
+    load_data(filenamewithext);
     while (!EXIT) {
         displayStats();
         printf("\n");
     }
+    printf("Selamat, Anda telah menyelesaikan permainan!!\n");
+    printf("---------------------------------------------\n");
+    printf("Total pesanan diselesaikan : %d\n", jmlPesanan-_perishableLoss);
+    printf("Waktu selesai  : %d\n", _time);
+    printf("Uang terkumpul : %d Yen\n", _money);
+
+
 }

@@ -29,6 +29,7 @@ boolean _incCapacity;
 boolean _returnToSender;
 int _moveCounter;
 int _kapasitasTas;
+int _perishableLoss;
 jumlahPesanan* konfigurasiC(int a);
 void load_data(char* filename);
 

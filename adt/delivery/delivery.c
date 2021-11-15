@@ -56,7 +56,7 @@ void dropoff_command(){
     }
     deleteAtLL(&_ListOfProggress,idx,&sampahNode);
   } else {
-    printf("Bukan lokasi drop off!");
+    printf("Bukan lokasi drop off!\n");
   }
 }
 
@@ -80,7 +80,8 @@ void updatePerishable(Tas *s)
             pushTas(&temp,sampah);
             idx++;
         } else if (sampah.itemtype == 'P' && sampah.timelimit - 1 - _waktuTambahan <= 0) {
-            deleteAtLL(&_ListOfProggress,idx,&sampahNode);        
+            deleteAtLL(&_ListOfProggress,idx,&sampahNode); 
+            _perishableLoss++;       
         } else {
             pushTas(&temp,sampah);
             idx++;

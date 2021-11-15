@@ -20,6 +20,7 @@ void start(char *filename) {
 
 	/* Algoritma */
 	tape = fopen(filename,"r");
+   eot = false;
    adv();
 }
 
@@ -50,6 +51,7 @@ void startWOA(char *filename) {
 
 	/* Algoritma */
 	tape = fopen(filename,"r");
+   eot = false;
 }
 
 char getAdv() {
@@ -69,6 +71,7 @@ void startInput() {
 
 	/* Algoritma */
 	tape = stdin;
+   eot = false;
 	advInput();
 }
 
@@ -83,7 +86,7 @@ void advInput() {
 	retval = fscanf(tape,"%c",&currentChar);
 	eot = (currentChar == '\n');
 	if (eot) {
-       return;
+      return;
  	}
 }
 

@@ -47,7 +47,7 @@ void startWordInput()
           atau endWord = false, currentWord adalah kata yang sudah diakuisisi,
           currentChar karakter pertama sesudah karakter terakhir kata */
 {
-   startInput();   
+   startInput();
    copyInput();
 
 }
@@ -153,6 +153,29 @@ char KataToChar (Word K)
       } else {
          return (K.contents[0]);
       }
+}
+
+char* KataToString (Word K){
+   char* toret = (char*)malloc(sizeof(char)*(CAPACITYWORDMACHINE)); 
+   int i = 0;
+   for (i = 0; i < K.length; i++) {
+         toret[i] = K.contents[i];
+   }
+   toret[i] = '\0';
+   return toret;
+}
+
+Word concatKata(Word w1, Word w2) {
+   Word toret;
+   int i = 0;
+   for (i = 0; i < w1.length; i++) {
+      toret.contents[i] = w1.contents[i];
+   }
+   for (i = 0; i < w2.length; i++) {
+      toret.contents[i+w1.length] = w2.contents[i];
+   }
+   toret.length = w1.length + w2.length;
+   return toret;
 }
 
 Word StringToKata (char s[] ) 

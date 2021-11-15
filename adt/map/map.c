@@ -17,12 +17,26 @@ POINT sLocHandler_MapMat(ListBangunan l, ElType_ListBangunan namaGedung) {
 }
 
 void displayMap_MapMat(MapMat map) {
+    boolean adaorder = false;
+    if (!isEmptyTas(backpack)) {
+        adaorder = true;
+    }
     for (int i = 0; i < ROWSMATRIX(map); i++) {
         for (int j = 0; j < COLSMATRIX(map); j++) {
             POINT temp = MakePOINT(i, j);
             if (EQPOINT(temp, _currentLocPOINT)) {
                 print_yellow(GETELMT_MapMat(map, i, j));
             } else {
+                boolean inipickup = false;
+                boolean inidrop = false;
+                if (adaorder) {
+                    ElTypeTas orderan = TOP_STACK(backpack);
+                    if (orderan.dropoff == GETELMT_MapMat(map, i, j)) {
+                        inidrop = true;
+                    } else if (orderan.pickup == GETELMT_MapMat(map, i, j)) {
+                        inipickup = true;
+                    }
+                }
                 boolean can_move = false;
                 for (int availtrav = 1; availtrav <= countAvailableBuilding; availtrav++) {
                     if (availdest[availtrav] == GETELMT_MapMat(map, i, j)) {
@@ -30,6 +44,12 @@ void displayMap_MapMat(MapMat map) {
                         break;
                     }
                 }
+                if (inipickup) {
+                    print_red(GETELMT_MapMat(map, i, j));
+                } else 
+                if (inidrop) {
+                    print_blue(GETELMT_MapMat(map, i, j));
+                } else
                 if (can_move) {
                     print_green(GETELMT_MapMat(map, i, j));
                 } else {

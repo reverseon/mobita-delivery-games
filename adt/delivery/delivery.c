@@ -7,10 +7,8 @@ void pickup_command (){
       if(indexOfPickupLL(TL,_currentLocBuilding) != IDX_UNDEF_LL){
         int idxTodo = indexOfPickupLL(TL,_currentLocBuilding);
         pushTas(&backpack,getElmtLL(TL,idxTodo));
-        deleteAtLL(&TL,idxTodo, &_sampah);
         addTodotoProgress(&_ListOfProggress,&TL,_currentLocBuilding);
-
-
+        deleteAtLL(&TL,idxTodo, &_sampah);
         ElTypeNODELL item = _sampah;
         if (item.itemtype == 'N'){
           printf("Pesanan berupa Normal item berhasil diambil\n");
@@ -36,16 +34,21 @@ void updatePerishable(Tas *s)
     ElTypeTas sampah,sampahPermanent;
     ElTypeNODELL sampahNode;
     int idxIn;
+    int idx = 0;
     while(!isEmptyTas(*s)){
+        ElTypeNODELL itemDiInP = getElmtLL(_ListOfProggress, idx);
         popTas(s,&sampah);
-        if (sampah.itemtype == 'P' && sampah.timelimit > 0) {
-            sampah.timelimit--;
+        if (sampah.itemtype == 'P' && sampah.timelimit - 1 - _waktuTambahan > 0) {
+            sampah.timelimit = sampah.timelimit - 1 - _waktuTambahan;
+            itemDiInP.timelimit = sampah.timelimit;
+            setElmtLL(&_ListOfProggress, idx, itemDiInP);
             pushTas(&temp,sampah);
-        } else if (sampah.timelimit == 0) {
-            popTas(s,&sampahPermanent);
-            idxIn=indexOfExpiredPerish(_ListOfProggress,'P');
-            deleteAtLL(&_ListOfProggress,idxIn,&sampahNode);        
+        } else if (sampah.itemtype == 'P' && sampah.timelimit - 1 - _waktuTambahan <= 0) {
+            deleteAtLL(&_ListOfProggress,idx,&sampahNode);        
+        } else {
+            pushTas(&temp,sampah);
         } 
+        idx++;
     }
 
     while(!isEmptyTas(temp)) {

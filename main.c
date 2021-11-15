@@ -10,12 +10,11 @@ void commandProcess() {
     printf("ENTER COMMAND: ");readCommand(command);
     if (IsCommandSama(*command,StringToKata("MOVE"))) {
         move_command_MapMat();
-        jumlahPesanan out = sq->root->data;
-        while(out.time <= _time && out.time != -1){
+        jumlahPesanan* out = &sq->root->data;
+        while(out != NULL && out->time <= _time){
             addQueuetoTodo(&TL, sq);
-            out = sq->root->data;
-        }
-        
+            out = &sq->root->data;
+        }   
         // Update perishable item
         updatePerishable(&backpack);
 

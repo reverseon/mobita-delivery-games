@@ -24,8 +24,11 @@ Tas backpack;
 int _waktuTambahan;
 ProgressList _ListOfProggress;
 List_inventory _inventory;
-
-
+boolean _speedBoost;
+boolean _incCapacity;
+boolean _returnToSender;
+int _moveCounter;
+int _kapasitasTas;
 jumlahPesanan* konfigurasiC(int a);
 void load_data(char* filename);
 

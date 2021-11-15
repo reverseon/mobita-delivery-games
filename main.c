@@ -3,6 +3,8 @@
 // #include "stack/stack.h"
 #define endl printf("\n")
 
+boolean EXIT = false;
+
 int strlen_main(const char* a)
 {
     int result = 0;
@@ -28,8 +30,6 @@ boolean strcmp_main(const char* a, const char* b) {
     return true;
 }
 
-boolean EXIT = false;
-
 void commandProcess() {
     Word* command = (Word*)malloc(sizeof(Word));
     printf("ENTER COMMAND: ");readCommand(command);
@@ -42,6 +42,13 @@ void commandProcess() {
         }   
         // Update perishable item
         updatePerishable(&backpack);
+        
+        if (_moveCounter < 2 && _speedBoost == true){
+            _moveCounter++;
+        } else if (_moveCounter == 2 && _speedBoost == true) {
+            _moveCounter = 0;
+            _time--;
+        }
 
     } else if (IsCommandSama(*command,StringToKata("MAP"))) {
         map_command_MapMat();
@@ -467,6 +474,9 @@ void commandProcess() {
                 }
                 break;
         }
+    }
+    else if (IsCommandSama(*command,StringToKata("DROP_OFF"))) {
+        dropoff_command();
     }
     else {
         printf("Command Invalid\n");

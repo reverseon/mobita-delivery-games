@@ -47,6 +47,8 @@ void load_data(char* filename){
     _waktuTambahan=0;
     _money = 0;
     jmlPesanan = 0;
+    _moveCounter = 0;
+    _kapasitasTas=3;
     startWord(filename);
 
     // input atas buat ukuran matriks
@@ -92,4 +94,8 @@ void load_data(char* filename){
     CreateTas(&backpack);
     CreateListLL(&_ListOfProggress);
     CreateListLL(&TL);
+    _speedBoost = false;
+    _incCapacity = false;
+    _returnToSender = false;
+    _moveCounter = 0;
 }

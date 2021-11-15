@@ -106,6 +106,236 @@ void commandProcess() {
                 printf("Command Anda Salah!\n");
                 break;
         }
+    } else if (IsCommandSama(*command,StringToKata("BUY"))) {
+        printf("\nUang anda sekarang: %d Yen\n", _money);
+        printf("Gadget yang tersedia:\n");
+        printf("1. Kain Pembungkus Waktu (800 Yen)\n");
+        printf("2. Senter Pembesar (1200 Yen)\n");
+        printf("3. Pintu Kemana Saja (1500 Yen)\n");
+        printf("4. Mesin Waktu (3000 Yen)\n");
+        printf("Gadget mana yang ingin dibeli? (ketik 0 jika ingin kembali)\n\n");
+        printf("ENTER COMMAND: ");
+        int buy_item;
+        scanf("%d", &buy_item);
+        char inventory_item[255];
+        switch (buy_item)
+        {
+            case 0:
+                printf("Menutup Shop\n");
+                break;
+            case 1:
+                if (_money - 800 >= 0)
+                {
+                    // Mengecek apakah masih ada slot pada inventory
+                    GetElmt_inventory(_inventory, 0, inventory_item);
+                    if (inventory_item[0]=='-')
+                    {
+                        _money -= 800;
+                        printf("Kain Pembungkus Waktu berhasil dibeli!\n");
+                        SetElmnt_inventory(&_inventory, 0, "Kain Pembungkus Waktu");
+                        break;
+                    }
+                    GetElmt_inventory(_inventory, 1, inventory_item);
+                    if (inventory_item[0]=='-')
+                    {
+                        _money -= 800;
+                        printf("Kain Pembungkus Waktu berhasil dibeli!\n");
+                        SetElmnt_inventory(&_inventory, 1, "Kain Pembungkus Waktu");
+                        break;
+                    }
+                    GetElmt_inventory(_inventory, 2, inventory_item);
+                    if (inventory_item[0]=='-')
+                    {
+                        _money -= 800;
+                        printf("Kain Pembungkus Waktu berhasil dibeli!\n");
+                        SetElmnt_inventory(&_inventory, 2, "Kain Pembungkus Waktu");
+                        break;
+                    }
+                    GetElmt_inventory(_inventory, 3, inventory_item);
+                    if (inventory_item[0]=='-')
+                    {
+                        _money -= 800;
+                        printf("Kain Pembungkus Waktu berhasil dibeli!\n");
+                        SetElmnt_inventory(&_inventory, 3, "Kain Pembungkus Waktu");
+                        break;
+                    }
+                    GetElmt_inventory(_inventory, 4, inventory_item);
+                    if (inventory_item[0]=='-')
+                    {
+                        _money -= 800;
+                        printf("Kain Pembungkus Waktu berhasil dibeli!\n");
+                        SetElmnt_inventory(&_inventory, 4, "Kain Pembungkus Waktu");
+                        break;
+                    }
+                    printf("Inventory Telah Penuh!\n");
+                    break;
+                }
+                else
+                {
+                    printf("Uang tidak cukup untuk membeli gadget!");
+                    break;
+                }
+                break;
+            case 2:
+                if (_money - 1200 >= 0)
+                {
+                    // Mengecek apakah masih ada slot pada inventory
+                    GetElmt_inventory(_inventory, 0, inventory_item);
+                    if (inventory_item[0]=='-')
+                    {
+                        _money -= 1200;
+                        printf("Senter Pembesar berhasil dibeli!\n");
+                        SetElmnt_inventory(&_inventory, 0, "Senter Pembesar");
+                        break;
+                    }
+                    GetElmt_inventory(_inventory, 1, inventory_item);
+                    if (inventory_item[0]=='-')
+                    {
+                        _money -= 1200;
+                        printf("Senter Pembesar berhasil dibeli!\n");
+                        SetElmnt_inventory(&_inventory, 1, "Senter Pembesar");
+                        break;
+                    }
+                    GetElmt_inventory(_inventory, 2, inventory_item);
+                    if (inventory_item[0]=='-')
+                    {
+                        _money -= 1200;
+                        printf("Senter Pembesar berhasil dibeli!\n");
+                        SetElmnt_inventory(&_inventory, 2, "Senter Pembesar");
+                        break;
+                    }
+                    GetElmt_inventory(_inventory, 3, inventory_item);
+                    if (inventory_item[0]=='-')
+                    {
+                        _money -= 1200;
+                        printf("Senter Pembesar berhasil dibeli!\n");
+                        SetElmnt_inventory(&_inventory, 3, "Senter Pembesar");
+                        break;
+                    }
+                    GetElmt_inventory(_inventory, 4, inventory_item);
+                    if (inventory_item[0]=='-')
+                    {
+                        _money -= 1200;
+                        printf("Senter Pembesar berhasil dibeli!\n");
+                        SetElmnt_inventory(&_inventory, 4, "Senter Pembesar");
+                        break;
+                    }
+                    printf("Inventory Telah Penuh!\n");
+                    break;
+                }
+                else
+                {
+                    printf("Uang tidak cukup untuk membeli gadget!");
+                    break;
+                }
+                break;
+            case 3:
+                if (_money - 1500 >= 0)
+                {
+                    // Mengecek apakah masih ada slot pada inventory
+                    GetElmt_inventory(_inventory, 0, inventory_item);
+                    if (inventory_item[0]=='-')
+                    {
+                        _money -= 1500;
+                        printf("Pintu Kemana Saja berhasil dibeli!\n");
+                        SetElmnt_inventory(&_inventory, 0, "Pintu Kemana Saja");
+                        break;
+                    }
+                    GetElmt_inventory(_inventory, 1, inventory_item);
+                    if (inventory_item[0]=='-')
+                    {
+                        _money -= 1500;
+                        printf("Pintu Kemana Saja berhasil dibeli!\n");
+                        SetElmnt_inventory(&_inventory, 1, "Pintu Kemana Saja");
+                        break;
+                    }
+                    GetElmt_inventory(_inventory, 2, inventory_item);
+                    if (inventory_item[0]=='-')
+                    {
+                        _money -= 1500;
+                        printf("Pintu Kemana Saja berhasil dibeli!\n");
+                        SetElmnt_inventory(&_inventory, 2, "Pintu Kemana Saja");
+                        break;
+                    }
+                    GetElmt_inventory(_inventory, 3, inventory_item);
+                    if (inventory_item[0]=='-')
+                    {
+                        _money -= 1500;
+                        printf("Pintu Kemana Saja berhasil dibeli!\n");
+                        SetElmnt_inventory(&_inventory, 3, "Pintu Kemana Saja");
+                        break;
+                    }
+                    GetElmt_inventory(_inventory, 4, inventory_item);
+                    if (inventory_item[0]=='-')
+                    {
+                        _money -= 1500;
+                        printf("Pintu Kemana Saja berhasil dibeli!\n");
+                        SetElmnt_inventory(&_inventory, 4, "Pintu Kemana Saja");
+                        break;
+                    }
+                    printf("Inventory Telah Penuh!\n");
+                    break;
+                }
+                else
+                {
+                    printf("Uang tidak cukup untuk membeli gadget!");
+                    break;
+                }
+                break;
+            case 4:
+                if (_money - 3000 >= 0)
+                {
+                    // Mengecek apakah masih ada slot pada inventory
+                    GetElmt_inventory(_inventory, 0, inventory_item);
+                    if (inventory_item[0]=='-')
+                    {
+                        _money -= 3000;
+                        printf("Mesin Waktu berhasil dibeli!\n");
+                        SetElmnt_inventory(&_inventory, 0, "Mesin Waktu");
+                        break;
+                    }
+                    GetElmt_inventory(_inventory, 1, inventory_item);
+                    if (inventory_item[0]=='-')
+                    {
+                        _money -= 3000;
+                        printf("Mesin Waktu berhasil dibeli!\n");
+                        SetElmnt_inventory(&_inventory, 1, "Mesin Waktu");
+                        break;
+                    }
+                    GetElmt_inventory(_inventory, 2, inventory_item);
+                    if (inventory_item[0]=='-')
+                    {
+                        _money -= 3000;
+                        printf("Mesin Waktu berhasil dibeli!\n");
+                        SetElmnt_inventory(&_inventory, 2, "Mesin Waktu");
+                        break;
+                    }
+                    GetElmt_inventory(_inventory, 3, inventory_item);
+                    if (inventory_item[0]=='-')
+                    {
+                        _money -= 3000;
+                        printf("Mesin Waktu berhasil dibeli!\n");
+                        SetElmnt_inventory(&_inventory, 3, "Mesin Waktu");
+                        break;
+                    }
+                    GetElmt_inventory(_inventory, 4, inventory_item);
+                    if (inventory_item[0]=='-')
+                    {
+                        _money -= 3000;
+                        printf("Mesin Waktu berhasil dibeli!\n");
+                        SetElmnt_inventory(&_inventory, 4, "Mesin Waktu");
+                        break;
+                    }
+                    printf("Inventory Telah Penuh!\n");
+                    break;
+                }
+                else
+                {
+                    printf("Uang tidak cukup untuk membeli gadget!");
+                    break;
+                }
+                break;
+        }
     }
     else {
         printf("Command Invalid\n");

@@ -156,8 +156,8 @@ void move_command_MapMat() {
     int dest = KataToInt(*whereto);
     if (dest == 0) {
         printf("Proses dibatalkan\n");
-    } else if (availdest[dest] == ' ') {
-        printf("Posisi tidak tersedia\n");
+    } else if (availdest[dest] == ' ' || dest > 27 || dest <= 0) {
+        printf("Posisi tidak tersedia atau command invalid\n");
     } else {
         printf("Pindah ke: "); TulisPOINT(sLocHandler_MapMat(tole, availdest[dest])); endl;
         move_to_MapMat(availdest[dest]);

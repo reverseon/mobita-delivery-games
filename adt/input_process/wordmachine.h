@@ -51,7 +51,8 @@ char KataToChar (Word K);
 Word StringToKata (char s[]); 
 boolean IsCommandSama (Word W1, Word W2);
 void readCommand (Word *K);
-
+void startWordInput();
+void copyInput();
 // void startWordCommand();
 // void copyCommand();
 #endif

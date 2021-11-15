@@ -110,14 +110,18 @@ void displayList_ListBangunan(ListBangunan l)
 POINT showLocation_ListBangunan(ListBangunan l, ElType_ListBangunan namaGedung){
     boolean temu=false;
     int i=0;
-    while(!temu){
+    while(!temu && i < length_ListBangunan(l)){
         if(namaGedung == ELMT_ListBangunan(l,i)){
             temu = true;
         } else {
             i++;
         }
     }
-    return COORDINAT_ListBangunan(l,i);
+    if (temu) {
+        return COORDINAT_ListBangunan(l,i);
+    } else {
+        return MakePOINT(-1,-1);
+    }
 }
 /* Search apakah ada elemen List l yang bernilai val */
 /* Jika ada, menghasilkan indeks i terkecil, dengan elemen ke-i = val */

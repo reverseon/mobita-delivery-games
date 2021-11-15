@@ -12,6 +12,7 @@
 /* Word Engine State */
 boolean endWord;
 Word currentWord;
+extern int retval;
 
 void ignoreBlank()
 /* Mengabaikan satu atau beberapa BLANK
@@ -32,7 +33,7 @@ void startWord(char *filename)
 {
    start(filename);
    endWord = false;
-   if(currentChar == MARK) {
+   if(currentChar == EOF) {
       endWord = true;
    } else {
       ignoreBlank();
@@ -40,16 +41,16 @@ void startWord(char *filename)
    }
 }
 
-// void startCommand()
-// /* I.S. : currentChar sembarang 
-//    F.S. : endWord = true, dan currentChar = MARK; 
-//           atau endWord = false, currentWord adalah kata yang sudah diakuisisi,
-//           currentChar karakter pertama sesudah karakter terakhir kata */
-// {
-//    startCom();   
-//    copyCommand();
+void startWordInput()
+/* I.S. : currentChar sembarang 
+   F.S. : endWord = true, dan currentChar = MARK; 
+          atau endWord = false, currentWord adalah kata yang sudah diakuisisi,
+          currentChar karakter pertama sesudah karakter terakhir kata */
+{
+   startInput();   
+   copyInput();
 
-// }
+}
 
 
 void advWord()
@@ -68,27 +69,27 @@ void advWord()
    }
 }
 
-// void copyCommand()
-// /* Mengakuisisi kata, menyimpan dalam currentWord
-//    I.S. : currentChar adalah karakter pertama dari kata
-//    F.S. : currentWord berisi kata yang sudah diakuisisi; 
-//           currentChar = BLANK atau currentChar = MARK; 
-//           currentChar adalah karakter sesudah karakter terakhir yang diakuisisi.
-//           Jika panjang kata melebihi CAPACITY, maka sisa kata terpotong */
-// {
+void copyInput()
+/* Mengakuisisi kata, menyimpan dalam currentWord
+   I.S. : currentChar adalah karakter pertama dari kata
+   F.S. : currentWord berisi kata yang sudah diakuisisi; 
+          currentChar = BLANK atau currentChar = MARK; 
+          currentChar adalah karakter sesudah karakter terakhir yang diakuisisi.
+          Jika panjang kata melebihi CAPACITY, maka sisa kata terpotong */
+{
 
-//    //kamus lokal
-//    int i;
+   //kamus lokal
+   int i;
 
-//    //Algoritma
-//    i = 0;
-//    while (currentChar != MARK && currentChar != BLANK && currentChar != NEWLINE && i< CAPACITY){
-//       currentWord.contents[i] = currentChar;
-//       advCommand();
-//       i++;
-//    }
-//    currentWord.length = i;
-// }
+   //Algoritma
+   i = 0;
+   while (currentChar != MARK && currentChar != BLANK && currentChar != NEWLINE && i< CAPACITYWORDMACHINE){
+      currentWord.contents[i] = currentChar;
+      advInput();
+      i++;
+   }
+   currentWord.length = i;
+}
 
 void copyWord()
 /* Mengakuisisi kata, menyimpan dalam currentWord
@@ -104,7 +105,7 @@ void copyWord()
 
    //Algoritma
    i = 0;
-   while (currentChar != MARK && currentChar != BLANK && currentChar != NEWLINE && i< CAPACITYWORDMACHINE){
+   while (currentChar != MARK && currentChar != BLANK && currentChar != NEWLINE && i< CAPACITYWORDMACHINE && !eot){
       currentWord.contents[i] = currentChar;
       adv();
       i++;
@@ -147,7 +148,11 @@ void displayKata (Word kata)
 }
 char KataToChar (Word K)
 {
-      return (K.contents[0]);
+      if (K.length > 1) {
+         return '@';
+      } else {
+         return (K.contents[0]);
+      }
 }
 
 Word StringToKata (char s[] ) 

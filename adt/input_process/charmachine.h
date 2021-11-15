@@ -27,7 +27,8 @@ void adv();
           Jika  currentChar = MARK maka EOP akan menyala (true) */
 
 void startWOA(char *filename);
-
+void startInput();
+void advInput();
 char getAdv();
 // void startCom();
 // void advCommand();

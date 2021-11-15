@@ -45,7 +45,7 @@ void load_data(char* filename){
 
     _time = 0;
     _waktuTambahan=0;
-    _money = 0;
+    _money = 50000;
     jmlPesanan = 0;
     _moveCounter = 0;
     _kapasitasTas=3;

@@ -24,6 +24,9 @@ void displayProgressList(ProgressList l)
         }
         counter++;
     }
+    if(isEmptyLL(l)){
+        printf("Tidak ada task yang sedang dikerjakan.\n");
+    }
 }
 
 void addTodotoProgress(ProgressList *l, ToDoList *tl, char locationbuilding)

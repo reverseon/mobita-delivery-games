@@ -148,12 +148,11 @@ void move_command_MapMat() {
     if (availdest_init == false) {
         availdestload_MapMat();
     }
-    Word* whereto = (Word*)malloc(sizeof(Word));
     printf("Posisi yang dapat dicapai:\n");
     displayAvailableDestination_MapMat();
     printf("Posisi yang dipilih? (ketik 0 jika ingin kembali)\n");
-    readCommand(whereto);
-    int dest = KataToInt(*whereto);
+    startWordInput();
+    int dest = KataToInt(currentWord);
     if (dest == 0) {
         printf("Proses dibatalkan\n");
     } else if (availdest[dest] == ' ' || dest > 27 || dest <= 0) {

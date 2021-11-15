@@ -24,6 +24,9 @@ void displayTodoList(ToDoList l)
         }
         counter++;
     }
+    if(isEmptyLL(l)){
+        printf("Tidak ada task yang harus dikerjakan.\n");
+    }
 }
 
 void addQueuetoTodo(ToDoList *l , sorted_pesanan *SQ){

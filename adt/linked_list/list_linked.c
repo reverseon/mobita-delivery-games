@@ -82,7 +82,6 @@ void insertLastLL(ListLL *l, ElTypeNODELL val) {
     } else {
         AddressNODELL na = newNode(val);
         AddressNODELL op = FIRSTLL(*l);
-        int i = 0;
         while(NEXTNODELL(op) != NULL) {
             op = NEXTNODELL(op);
         }

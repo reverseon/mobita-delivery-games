@@ -6,6 +6,7 @@
 
 char currentChar;
 boolean eot;
+boolean fileFound;
 
 static FILE * tape;
 static int retval;
@@ -19,9 +20,14 @@ void start(char *filename) {
           Jika currentChar = MARK maka EOP akan menyala (true) */
 
 	/* Algoritma */
-	tape = fopen(filename,"r");
-   eot = false;
-   adv();
+   if ((tape = fopen(filename,"r")) == NULL) {
+      eot = true;
+      fileFound = false;
+   } else {
+      eot = false;
+      fileFound = true;
+      adv();
+   }
 }
 
 void adv() {

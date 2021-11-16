@@ -5,7 +5,6 @@
 jumlahPesanan* konfigurasiC(int jumlah) {
 
     jumlahPesanan* array = malloc(sizeof(jumlahPesanan)*jumlah);
-    int len = jumlah;
     int index = 0;
 
     while(jumlah--)
@@ -45,12 +44,14 @@ void load_data(char* filename){
 
     _time = 0;
     _waktuTambahan=0;
-    _money = 50000;
+    _money = 0;
     jmlPesanan = 0;
     _moveCounter = 0;
     _kapasitasTas=3;
     startWord(filename);
-
+    if (!fileFound) {
+        return;
+    }
     // input atas buat ukuran matriks
     row = KataToInt(currentWord);
     advWord();advWord();

@@ -4,6 +4,7 @@
 // Deskripsi : Implementasi header wordmachine.h
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "../boolean/boolean.h"
 #include "charmachine.h"
 #include "wordmachine.h"
@@ -33,7 +34,7 @@ void startWord(char *filename)
 {
    start(filename);
    endWord = false;
-   if(currentChar == EOF) {
+   if(currentChar == EOF || !fileFound) {
       endWord = true;
    } else {
       ignoreBlank();

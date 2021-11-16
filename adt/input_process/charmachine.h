@@ -10,6 +10,7 @@
 /* Char Engine State */
 extern char currentChar;
 extern boolean eot;
+extern boolean fileFound;
 
 void start(char *filename);
 /* Mesin siap dioperasikan. Pita disiapkan untuk dibaca.

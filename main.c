@@ -4,6 +4,7 @@
 #define endl printf("\n")
 
 boolean EXIT = false;
+boolean FINISH = false;
 
 int strlen_main(const char* a)
 {
@@ -31,22 +32,21 @@ boolean strcmp_main(const char* a, const char* b) {
 }
 
 void commandProcess() {
-    Word* command = (Word*)malloc(sizeof(Word));
     printf("ENTER COMMAND: ");
-    // if (_currentLocBuilding == '8' && isEmptyLL(TL) && isEmptyTas(backpack) && isEmptyLL(_ListOfProggress)) {
-    //     EXIT = true;
-    // }
     startWordInput();
     if (IsCommandSama(currentWord,StringToKata("MOVE"))) {
         move_command_MapMat();
-        jumlahPesanan* out = &sq->root->data;
-        while(out != NULL && out->time <= _time){
-            addQueuetoTodo(&TL, sq);
-            out = &sq->root->data;
-        }   
-        // Update perishable item
-        updatePerishable(&backpack);
-
+        if (_currentLocBuilding == '8' && isEmptysorted_pesanan(sq) && isEmptyLL(TL) && isEmptyTas(backpack) && isEmptyLL(_ListOfProggress)) {
+            FINISH = true;
+        } else {
+            jumlahPesanan* out = &sq->root->data;
+            while(out != NULL && out->time <= _time){
+                addQueuetoTodo(&TL, sq);
+                out = &sq->root->data;
+            }   
+            // Update perishable item
+            updatePerishable(&backpack);
+        }
         if (_speedBoost == true) {
             _moveCounter++;
             if (_moveCounter % 2 == 0) {
@@ -61,7 +61,6 @@ void commandProcess() {
     } else if (IsCommandSama(currentWord,StringToKata("MAP"))) {
         map_command_MapMat();
     } else if (IsCommandSama(currentWord,StringToKata("EXIT"))) {
-        printf("EXITING...\n");
         EXIT = true;
     } else if (IsCommandSama(currentWord,StringToKata("PICK_UP"))) {
         pickup_command();
@@ -99,6 +98,10 @@ void commandProcess() {
                         {
                             _currentLocBuilding = '8';
                             _currentLocPOINT = MakePOINT(x_hq,y_hq);
+                            if (_currentLocBuilding == '8' && isEmptysorted_pesanan(sq) && isEmptyLL(TL) && isEmptyTas(backpack) && isEmptyLL(_ListOfProggress)) {
+                                FINISH = true;
+                                return;
+                            }      
                         }
                         else
                         {
@@ -118,8 +121,7 @@ void commandProcess() {
                     if(strcmp_main(pakai_gadget, "Kain Pembungkus Waktu") == true) {
                         Tas temp;
                         CreateTas(&temp);
-                        ElTypeTas sampah,sampahPermanent;
-                        ElTypeNODELL sampahNode;
+                        ElTypeTas sampah;
                         int idx = 0;
                         boolean found = false;
                         while(!isEmptyTas(backpack) && !found) {
@@ -167,6 +169,10 @@ void commandProcess() {
                         {
                             _currentLocBuilding = '8';
                             _currentLocPOINT = MakePOINT(x_hq,y_hq);
+                            if (_currentLocBuilding == '8' && isEmptysorted_pesanan(sq) && isEmptyLL(TL) && isEmptyTas(backpack) && isEmptyLL(_ListOfProggress)) {
+                                FINISH = true;
+                                return;
+                            } 
                         }
                         else
                         {
@@ -186,8 +192,7 @@ void commandProcess() {
                     if(strcmp_main(pakai_gadget, "Kain Pembungkus Waktu") == true) {
                         Tas temp;
                         CreateTas(&temp);
-                        ElTypeTas sampah,sampahPermanent;
-                        ElTypeNODELL sampahNode;
+                        ElTypeTas sampah;
                         int idx = 0;
                         boolean found = false;
                         while(!isEmptyTas(backpack) && !found) {
@@ -235,6 +240,10 @@ void commandProcess() {
                         {
                             _currentLocBuilding = '8';
                             _currentLocPOINT = MakePOINT(x_hq,y_hq);
+                            if (_currentLocBuilding == '8' && isEmptysorted_pesanan(sq) && isEmptyLL(TL) && isEmptyTas(backpack) && isEmptyLL(_ListOfProggress)) {
+                                FINISH = true;
+                                return;
+                            } 
                         }
                         else
                         {
@@ -254,8 +263,7 @@ void commandProcess() {
                     if(strcmp_main(pakai_gadget, "Kain Pembungkus Waktu") == true) {
                         Tas temp;
                         CreateTas(&temp);
-                        ElTypeTas sampah,sampahPermanent;
-                        ElTypeNODELL sampahNode;
+                        ElTypeTas sampah;
                         int idx = 0;
                         boolean found = false;
                         while(!isEmptyTas(backpack) && !found) {
@@ -303,6 +311,10 @@ void commandProcess() {
                         {
                             _currentLocBuilding = '8';
                             _currentLocPOINT = MakePOINT(x_hq,y_hq);
+                            if (_currentLocBuilding == '8' && isEmptysorted_pesanan(sq) && isEmptyLL(TL) && isEmptyTas(backpack) && isEmptyLL(_ListOfProggress)) {
+                                FINISH = true;
+                                return;
+                            } 
                         }
                         else
                         {
@@ -322,8 +334,7 @@ void commandProcess() {
                     if(strcmp_main(pakai_gadget, "Kain Pembungkus Waktu") == true) {
                         Tas temp;
                         CreateTas(&temp);
-                        ElTypeTas sampah,sampahPermanent;
-                        ElTypeNODELL sampahNode;
+                        ElTypeTas sampah;
                         int idx = 0;
                         boolean found = false;
                         while(!isEmptyTas(backpack) && !found) {
@@ -371,6 +382,10 @@ void commandProcess() {
                         {
                             _currentLocBuilding = '8';
                             _currentLocPOINT = MakePOINT(x_hq,y_hq);
+                            if (_currentLocBuilding == '8' && isEmptysorted_pesanan(sq) && isEmptyLL(TL) && isEmptyTas(backpack) && isEmptyLL(_ListOfProggress)) {
+                                FINISH = true;
+                                return;
+                            } 
                         }
                         else
                         {
@@ -390,8 +405,8 @@ void commandProcess() {
                     if(strcmp_main(pakai_gadget, "Kain Pembungkus Waktu") == true) {
                         Tas temp;
                         CreateTas(&temp);
-                        ElTypeTas sampah,sampahPermanent;
-                        ElTypeNODELL sampahNode;
+                        ElTypeTas sampah;
+                        
                         int idx = 0;
                         boolean found = false;
                         while(!isEmptyTas(backpack) && !found) {
@@ -678,18 +693,27 @@ void displayStats() {
 int main() {
     printf("masukkan nama file: "); startWordInput();
     endl;
-    char* filenamewithext = KataToString(concatKata(currentWord, StringToKata(".txt")));
-    printf("%s has been loaded...\nEnjoy\n", filenamewithext);
+    char* filenamewithext = KataToString(concatKata(StringToKata("savefile/"),(concatKata(currentWord, StringToKata(".txt")))));
     load_data(filenamewithext);
-    while (!EXIT) {
-        displayStats();
-        printf("\n");
+    if (!fileFound) {
+        printf("Sorry, Failed to Load that...\nExiting...");
+    } else {
+        printf("%s has been loaded...\nEnjoy\n\n", filenamewithext);
+        while (!EXIT && !FINISH) {
+            displayStats();
+            printf("\n");
+        }
+        if (EXIT) {
+            printf("Terima Kasih telah bermain bersama kami\n");
+        } else if (FINISH) {
+            printf("Selamat, Anda telah menyelesaikan permainan!!\n");
+            printf("---------------------------------------------\n");
+            printf("Total pesanan diselesaikan : %d\n", jmlPesanan-_perishableLoss);
+            printf("Waktu selesai  : %d\n", _time);
+            printf("Uang terkumpul : %d Yen\n", _money);
+        } else {
+            printf("Error, Something went wrong...\n");
+        }
+        printf("Exiting...\n");
     }
-    printf("Selamat, Anda telah menyelesaikan permainan!!\n");
-    printf("---------------------------------------------\n");
-    printf("Total pesanan diselesaikan : %d\n", jmlPesanan-_perishableLoss);
-    printf("Waktu selesai  : %d\n", _time);
-    printf("Uang terkumpul : %d Yen\n", _money);
-
-
 }

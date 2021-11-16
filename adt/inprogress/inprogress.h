@@ -2,6 +2,7 @@
 #define PROGRESSLIST_H
 
 #include "../linked_list/list_linked.h"
+#include "../tas/tas.h"
 #include "../linked_list/nodeLL.h"
 #include "../todolist/todolist.h"
 

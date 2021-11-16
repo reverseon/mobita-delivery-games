@@ -66,9 +66,8 @@ void updatePerishable(Tas *s)
 {
     Tas temp;
     CreateTas(&temp);
-    ElTypeTas sampah,sampahPermanent;
+    ElTypeTas sampah;
     ElTypeNODELL sampahNode;
-    int idxIn;
     int idx = 0;
     while(!isEmptyTas(*s)){
         ElTypeNODELL itemDiInP = getElmtLL(_ListOfProggress, idx);

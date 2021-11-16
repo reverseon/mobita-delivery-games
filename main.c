@@ -31,9 +31,25 @@ boolean strcmp_main(const char* a, const char* b) {
     return true;
 }
 
+void help_command_main() {
+    printf("MOVE -> menampilkan pilihan lokasi dan pindah ke lokasi tersebut bila diinginkan.\n");
+    printf("PICK_UP -> mengambil item jika ada pesanan yang harus diambil pada lokasi.\n");
+    printf("DROP_OFF -> mengantarkan item ke lokasi jika item di tumpukan teratas tas sesuai dengan pesanan.\n");
+    printf("MAP -> menampilkan Peta\n");
+    printf("TO_DO -> menampilkan pesanan yang dapat di lokasi tertentu sekarang.\n");
+    printf("IN_PROGRESS -> menampilkan pesanan yang sedang dikerjakan.\n");
+    printf("BUY -> menampilkan gadget dan membelinya. hanya dapat digunakan ketika di HQ\n");
+    printf("INVENTORY -> menampilkan inventory dan menggunakan gadget yang tersedia\n");
+    printf("HELP -> menampilkan penjelasan command yang tersedia\n");
+    printf("EXIT -> keluar dari program\n");
+}
+
 void commandProcess() {
     printf("ENTER COMMAND: ");
     startWordInput();
+    if (IsCommandSama(currentWord, StringToKata("HELP"))) {
+        help_command_main();
+    } else 
     if (IsCommandSama(currentWord,StringToKata("MOVE"))) {
         move_command_MapMat();
         if (_currentLocBuilding == '8' && isEmptysorted_pesanan(sq) && isEmptyLL(TL) && isEmptyTas(backpack) && isEmptyLL(_ListOfProggress)) {
